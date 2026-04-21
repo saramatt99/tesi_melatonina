@@ -1,0 +1,13 @@
+# File troppo grandi
+*.fasta
+*.treefile
+*.gz
+*.pdf
+nohup.out
+
+# File temporanei
+*.log
+*.ckp.gz
+*.bionj
+*.mldist
+*.model.gz
