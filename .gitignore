@@ -11,3 +11,4 @@ nohup.out
 *.bionj
 *.mldist
 *.model.gz
+.DS_Store
