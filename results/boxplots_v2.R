@@ -312,3 +312,27 @@ p3 <- ggplot(species_count_norm, aes(x = group, y = proportion, fill = receptor)
 ggsave("~/tesi_melatonina/results/boxplot_proportions.pdf", p3, width = 10, height = 6)
 ggsave("~/tesi_melatonina/results/boxplot_proportions.png", p3, width = 10, height = 6, dpi = 300)
 cat("Boxplot 3 salvato!\n")
+
+# ============================================================
+# BOXPLOT 4 — Proporzioni normalizzate con barre affiancate
+# ============================================================
+p4 <- ggplot(species_count_norm, aes(x = group, y = proportion, fill = receptor)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 9),
+    legend.title = element_text(face = "bold")
+  ) +
+  labs(
+    title = "Proportion of receptor types per taxonomic group",
+    x = "Taxonomic group",
+    y = "Proportion (%)",
+    fill = "Receptor"
+  ) +
+  scale_fill_manual(values = c("MTNR1A" = "#E41A1C",
+                                "MTNR1B" = "#377EB8",
+                                "MTNR1C" = "#4DAF4A"))
+
+ggsave("~/tesi_melatonina/results/boxplot_proportions_dodge.pdf", p4, width = 10, height = 6)
+ggsave("~/tesi_melatonina/results/boxplot_proportions_dodge.png", p4, width = 10, height = 6, dpi = 300)
+cat("Boxplot 4 salvato!\n")
