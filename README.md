@@ -42,7 +42,7 @@ Questo repository contiene la pipeline bioinformatica e i risultati dell'analisi
 ## Risultati
 - Albero filogenetico con 2.128 taxa radicato con outgroup opsine
 - Analisi della distribuzione delle lunghezze dei rami (test di Kruskal-Wallis)
-- MTNR1C assente in tutti i gruppi di mammiferi — multipli eventi di perdita indipendenti
+- MTNR1C assente in tutti i gruppi di mammiferi
 - Amphibia mostra rami significativamente più lunghi per MTNR1A (p = 4.27e-14)
 
 ---
