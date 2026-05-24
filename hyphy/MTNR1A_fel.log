@@ -1,0 +1,481 @@
+
+Analysis Description
+--------------------
+FEL (Fixed Effects Likelihood) estimates site-wise synonymous (&alpha;)
+and non-synonymous (&beta;) rates, and uses a likelihood ratio test to
+determine if beta &neq; alpha at a site. The estimates aggregate
+information over all branches, so the signal is derived from pervasive
+diversification or conservation. A subset of branches can be selected
+for testing as well, in which case an additional (nuisance) parameter
+will be inferred -- the non-synonymous rate on branches NOT selected for
+testing. Multiple partitions within a NEXUS file are also supported for
+recombination - aware analysis. Version 2.5 adds MH support. Version 2.6
+adds substitution mapping. 
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree
+
+- __Citation__: Not So Different After All: A Comparison of Methods for Detecting Amino
+Acid Sites Under Selection (2005). _Mol Biol Evol_ 22 (5): 1208-1222
+
+- __Written by__: Sergei L Kosakovsky Pond and Simon DW Frost
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 2.6
+
+
+>code => Universal
+
+-------
+>[WARNING]
+'/Users/saramattiolo/tesi_melatonina/alignment_prank/MTNR1A_prank.best.fas'
+contains 10 duplicate sequences. Identical sequences do not contribute
+any information to the analysis and only slow down computation. Please
+consider removing duplicate or 'nearly' duplicate sequences, e.g. using
+https://github.com/veg/hyphy-analyses/tree/master/remove-duplicates
+prior to running selection analyses
+-------
+/Users/saramattiolo/tesi_melatonina/hyphy/MTNR1A_tree.nwk
+/Users/saramattiolo/tesi_melatonina/hyphy/MTNR1A_tree.nwk
+
+>Loaded a multiple sequence alignment with **550** sequences, **3633** codons, and **1** partitions from `/Users/saramattiolo/tesi_melatonina/alignment_prank/MTNR1A_prank.best.fas`
+
+>branches => All
+
+>srv => Yes
+
+>multiple-hits => None
+
+>Select the p-value threshold to use when testing for selection (permissible range = [0,1], default value = 0.1): 
+>pvalue => 0.1
+
+>ci => No
+Only analyze sites whose 1-based indices match the following list (null to skip) : 
+>limit-to-sites => null
+For sites whose 1-based indices match the following list, write out likelihood function snapshots (null string to skip) : 
+>save-lf-for-sites => null
+
+>[Advanced setting, will result in MUCH SLOWER run time] Perform parametric bootstrap resampling to derive site-level null LRT distributions up to this many replicates per site. Recommended use for small to medium (<30 sequences) datasets (permissible range = [0,1000], default value = 50, integer): 
+>resample => 0
+
+
+### Branches to include in the FEL analysis
+Selected 1097 branches to include in FEL calculations: `Chelonia_mydas_MTNR1A_102946668, Caretta_caretta_MTNR1A_125641701, Node13, Dermochelys_coriacea_MTNR1A_119860032, Node12, Chelydra_serpentina_MTNR1A_G0U57_007324, Node11, Chelonoidis_abingdonii_MTNR1A_116820072, Gopherus_flavomarginatus_MTNR1A_127055213, Gopherus_evgoodei_MTNR1A_115656752, Gopherus_evgoodei_MTNR1A_MTNR1A, Node24, Node22, Node20, Mauremys_reevesii_MTNR1A_120370596, Node19, Trachemys_scripta_elegans_MTNR1A_117881704, Malaclemys_terrapin_pileata_MTNR1A_128842270, Node30, Chrysemys_picta_MTNR1A_MTNR1A, Node29, Terrapene_carolina_triunguis_MTNR1A_112118653, Node28, Node18, Node10, Pelodiscus_sinensis_MTNR1A_102445396, Node9, Gymnogyps_californianus_MTNR1A_127022172, Cathartes_aura_MTNR1A_N323_00370, Node36, Node8, Sceloporus_undulatus_MTNR1A_121922608, Hemicordylus_capensis_MTNR1A_128346952, Node41, Zootoca_vivipara_MTNR1A_118080441, Podarcis_muralis_MTNR1A_114591369, Podarcis_raffonei_MTNR1A_128407979, Node49, Podarcis_lilfordi_MTNR1A_PODLI_1B022073, Node48, Lacerta_agilis_MTNR1A_117041474, Node47, Node45, Pogona_vitticeps_MTNR1A_110087969, Node44, Node40, Varanus_komodoensis_MTNR1A_123035811, Gekko_japonicus_MTNR1A_107113891, Sphaerodactylus_townsendi_MTNR1A_125429153, Node57, Node55, Node39, Node7, Rhinatrema_bivittatum_MTNR1A_115079698, Node6, Bombina_bombina_MTNR1A_128662408, Xenopus_tropicalis_MTNR1A_100486065, Xenopus_laevis_MTNR1A_121402097, Node65, Node63, Hyla_sarda_MTNR1A_130367088, Bufo_bufo_MTNR1A_121008038, Bufo_gargarizans_MTNR1A_122926495, Node71, Node69, Nanorana_parkeri_MTNR1A_108786306, Rana_temporaria_MTNR1A_120932614, Node74, Node68, Node62, Spea_bombifrons_MTNR1A_128490350, Pelobates_cultripes_MTNR1A_PECUL_23A022677, Node77, Node61, Node5, Ornithorhynchus_anatinus_MTNR1A_100089825, Tachyglossus_aculeatus_MTNR1A_119935655, Node80, Node4, Bombina_bombina_MTNR1A_128650168, Xenopus_laevis_MTNR1A_108706613, Xenopus_laevis_MTNR1A_108719600, Node91, Xenopus_tropicalis_MTNR1A_116408465, Node90, Bufo_bufo_MTNR1A_120990166, Bufo_gargarizans_MTNR1A_122942244, Node98, Hyla_sarda_MTNR1A_130357040, Node97, Rana_temporaria_MTNR1A_120939049, Nanorana_parkeri_MTNR1A_108792534, Node102, Node96, Spea_bombifrons_MTNR1A_128483030, Leptobrachium_leishanense_MTNR1A_MTNR1A, Node105, Node95, Node89, Node87, Rhinatrema_bivittatum_MTNR1A_115083065, Geotrypetes_seraphini_MTNR1A_117360174, Microcaecilia_unicolor_MTNR1A_115462196, Node110, Node108, Node86, Caretta_caretta_MTNR1A_125635838, Caretta_caretta_MTNR1A_MTNR1A, Node118, Chelydra_serpentina_MTNR1A_G0U57_012761, Node117, Chelonoidis_abingdonii_MTNR1A_116835911, Gopherus_evgoodei_MTNR1A_115652153, Gopherus_evgoodei_MTNR1A_MTNR1A_2, Node126, Node124, Gopherus_flavomarginatus_MTNR1A_127048268, Node123, Chrysemys_picta_MTNR1A_MTNR1A_2, Trachemys_scripta_elegans_MTNR1A_117878350, Malaclemys_terrapin_pileata_MTNR1A_128837651, Node133, Node131, Terrapene_carolina_triunguis_MTNR1A_112108958, Node130, Node122, Node116, Pelodiscus_sinensis_MTNR1A_102445172, Node115, Alligator_mississippiensis_MTNR1A_102559614, Crocodylus_porosus_MTNR1A_109321857, Gavialis_gangeticus_MTNR1A_109303664, Node142, Alligator_sinensis_MTNR1A_102368830, Node141, Node139, Casuarius_casuarius_MTNR1A_CASCAS_R00283, Eudromia_elegans_MTNR1A_EUDELE_R09655, Crypturellus_undulatus_MTNR1A_CRYUND_R11698, Crypturellus_soui_MTNR1A_CRYSOU_R09254, Node155, Node153, Nothoprocta_perdicaria_MTNR1A_112942661, Nothoprocta_ornata_MTNR1A_NOTORN_R08152, Nothoprocta_pentlandii_MTNR1A_NOTPEN_R04463, Node160, Node158, Node152, Nothocercus_nigrocapillus_MTNR1A_NOTNIG_R08744, Nothocercus_julius_MTNR1A_NOTJUL_R04464, Node163, Node151, Apteryx_mantelli_mantelli_MTNR1A_106483995, Apteryx_rowi_MTNR1A_112971936, Node166, Node150, Node148, Struthio_camelus_australis_MTNR1A_104138339, Node147, Aix_galericulata_MTNR1A_LUU34_01045300, Cairina_moschata_domestica_MTNR1A_MTNR1A, Node175, Oxyura_jamaicensis_MTNR1A_118166742, Cygnus_olor_MTNR1A_121070239, Node179, Asarcornis_scutulata_MTNR1A_ASASCU_R02953, Aythya_fuligula_MTNR1A_116489283, Node182, Node178, Node174, Anas_platyrhynchos_MTNR1A_101797746, Anas_zonorhyncha_MTNR1A_MTNR1A, Node185, Node173, Anseranas_semipalmata_MTNR1A_ANSSEM_R03934, Node172, Numida_meleagris_MTNR1A_110398913, Odontophorus_gujanensis_MTNR1A_ODOGUJ_R06493, Node192, Centrocercus_urophasianus_MTNR1A_122157015, Tympanuchus_pallidicinctus_MTNR1A_128080581, Node200, Lagopus_leucura_MTNR1A_122179994, Lagopus_muta_MTNR1A_125691636, Node203, Node199, Meleagris_gallopavo_MTNR1A_100549313, Meleagris_gallopavo_MTNR1A_MTNR1A, Node206, Node198, Phasianus_colchicus_MTNR1A_116225953, Node197, Coturnix_japonica_MTNR1A_107313685, Node196, Gallus_gallus_MTNR1A_Mel1AR, Node195, Node191, Penelope_pileata_MTNR1A_PENPIL_R05623, Node190, Alectura_lathami_MTNR1A_ALELAT_R01391, Node189, Node171, Apus_apus_MTNR1A_127384831, Chaetura_pelagica_MTNR1A_104393049, Node219, Hemiprocne_comata_MTNR1A_HEMCOM_R04999, Node218, Calypte_anna_MTNR1A_103526818, Oreotrochilus_melanogaster_MTNR1A_OREMEL_R02473, Node224, Aegotheles_bennettii_MTNR1A_AEGBEN_R04201, Node223, Node217, Nyctibius_bracteatus_MTNR1A_NYCBRA_R09790, Nyctibius_grandis_MTNR1A_NYCGRA_R04360, Node228, Node216, Aramus_guarauna_MTNR1A_ARAGUA_R06901, Grus_americana_MTNR1A_129205855, Node231, Node215, Uria_aalge_MTNR1A_URIAAL_R09604, Cepphus_grylle_MTNR1A_CEPGRY_R11197, Node241, Rissa_tridactyla_MTNR1A_128910190, Rynchops_niger_MTNR1A_RYNNIG_R11941, Larus_smithsonianus_MTNR1A_LARSMI_R11060, Node248, Chroicocephalus_maculipennis_MTNR1A_CHRMAC_R00679, Node247, Node245, Phaetusa_simplex_MTNR1A_PHASIM_R09406, Node244, Node240, Jacana_jacana_MTNR1A_JACJAC_R05292, Rostratula_benghalensis_MTNR1A_ROSBEN_R03554, Nycticryphes_semicollaris_MTNR1A_NYCSEM_R10057, Node258, Node256, Thinocorus_orbignyianus_MTNR1A_THIORB_R06749, Pedionomus_torquatus_MTNR1A_PEDTOR_R04494, Node261, Node255, Arenaria_interpres_MTNR1A_AREINT_R12673, Calidris_pugnax_MTNR1A_106889983, Node264, Node254, Limosa_lapponica_baueri_MTNR1A_llap_17763, Node253, Node239, Glareola_pratincola_MTNR1A_GLAPRA_R03366, Dromas_ardeola_MTNR1A_DROARD_R01411, Node269, Rhinoptilus_africanus_MTNR1A_RHIAFR_R00740, Node268, Node238, Chionis_minor_MTNR1A_CHIMIN_R03901, Pluvianellus_socialis_MTNR1A_PLUSOC_R03973, Node273, Node237, Columba_livia_MTNR1A_102097201, Patagioenas_fasciata_monilis_MTNR1A_AV530_017448, Node278, Columbina_picui_MTNR1A_COLPIC_R11018, Caloenas_nicobarica_MTNR1A_CALNIC_R09735, Node281, Node277, Alopecoenas_beccarii_MTNR1A_ALOBEC_R04386, Node276, Node236, Fregetta_grallaria_MTNR1A_FREGRA_R08122, Node235, Geococcyx_californianus_MTNR1A_GEOCAL_R09814, Crotophaga_sulcirostris_MTNR1A_CROSUL_R00109, Node289, Cuculus_canorus_MTNR1A_104067144, Centropus_unirufus_MTNR1A_CENUNI_R10369, Centropus_bengalensis_MTNR1A_CENBEN_R05778, Node294, Node292, Node288, Haliaeetus_albicilla_MTNR1A_HALALB_R11427, Haliaeetus_leucocephalus_MTNR1A_104833397, Node308, Buteo_japonicus_MTNR1A_MTNR1A, Node307, Aquila_chrysaetos_chrysaetos_MTNR1A_115344633, Node306, Harpia_harpyja_MTNR1A_128138670, Node305, Amazona_aestiva_MTNR1A_AAES_125952, Amazona_guildingii_MTNR1A_AMAGUI_R02447, Node317, Melopsittacus_undulatus_MTNR1A_101871740, Pezoporus_wallicus_MTNR1A_130605137, Node320, Node316, Eolophus_roseicapilla_MTNR1A_EOLROS_R04365, Node315, Strigops_habroptila_MTNR1A_115610905, Node314, Node304, Cariama_cristata_MTNR1A_104159597, Chunga_burmeisteri_MTNR1A_CHUBUR_R07222, Node328, Trogon_melanurus_MTNR1A_TROMEL_R13875, Apaloderma_vittatum_MTNR1A_104269477, Node331, Node327, Upupa_epops_MTNR1A_UPUEPO_R09430, Rhinopomastus_cyanomelas_MTNR1A_RHICYA_R08465, Node334, Node326, Eubucco_bourcierii_MTNR1A_EUBBOU_R06958, Ramphastos_sulfuratus_MTNR1A_RAMSUL_R03249, Node340, Tricholaema_leucomelas_MTNR1A_TRILEU_R11371, Node339, Psilopogon_haemacephalus_MTNR1A_PSIHAE_R02269, Node338, Dryobates_pubescens_MTNR1A_104301790, Indicator_maculatus_MTNR1A_INDMAC_R09138, Indicator_indicator_MTNR1A_128968500, Node347, Node345, Node337, Node325, Node303, Bucorvus_abyssinicus_MTNR1A_BUCABY_R08658, Buceros_rhinoceros_silvestris_MTNR1A_104497761, Node350, Node302, Falco_tinnunculus_MTNR1A_1B_ENSFTIG000000079161, Falco_rusticolus_MTNR1A_119151269, Node354, Pterocles_burchelli_MTNR1A_PTEBUR_R09896, Syrrhaptes_paradoxus_MTNR1A_SYRPAR_R03890, Node357, Node353, Node301, Gymnorhina_tibicen_MTNR1A_GYMTIB_R03202, Rhagologus_leucostigma_MTNR1A_RHALEU_R00802, Node370, Machaerirhynchus_nigripectus_MTNR1A_MACNIG_R02584, Node369, Aphelocoma_coerulescens_MTNR1A_APHCOE_R01164, Corvus_kubaryi_MTNR1A_121676664, Corvus_hawaiiensis_MTNR1A_125326252, Corvus_cornix_cornix_MTNR1A_104690858, Corvus_moneduloides_MTNR1A_116444396, Node382, Node380, Node378, Node376, Oriolus_oriolus_MTNR1A_ORIORI_R09960, Pachycephala_philippinensis_MTNR1A_PACPHI_R10631, Node387, Eulacestoma_nigropectus_MTNR1A_EULNIG_R02123, Node386, Pteruthius_melanotis_MTNR1A_PTEMEL_R02430, Node385, Node375, Chaetorhynchus_papuensis_MTNR1A_CHAPAP_R06898, Node374, Node368, Ptilorrhoa_leucosticta_MTNR1A_PTILEU_R03021, Mohoua_ochrocephala_MTNR1A_MOHOCH_R12459, Node393, Node367, Aleadryas_rufinucha_MTNR1A_ALERUF_R00514, Node366, Serinus_canaria_MTNR1A_103825450, Loxia_curvirostra_MTNR1A_LOXCUR_R05310, Loxia_leucoptera_MTNR1A_LOXLEU_R08596, Node410, Node408, Haemorhous_mexicanus_MTNR1A_MTNR1A, Node407, Dicaeum_eximium_MTNR1A_DICEXI_R00335, Node406, Notiomystis_cincta_MTNR1A_NOTCIN_R00405, Sturnus_vulgaris_MTNR1A_106851456, Leucopsar_rothschildi_MTNR1A_LEUROT_R05621, Node419, Toxostoma_redivivum_MTNR1A_TOXRED_R04042, Node418, Sylvia_atricapilla_MTNR1A_SYLATR_R09805, Sylvia_borin_MTNR1A_SYLBOR_R01229, Node428, Turnix_velox_MTNR1A_TURVEL_R06354, Node427, Oenanthe_oenanthe_MTNR1A_OENOEN_R11052, Oenanthe_melanoleuca_MTNR1A_130252324, Node432, Node426, Ficedula_albicollis_MTNR1A_101818649, Node425, Cercotrichas_coryphoeus_MTNR1A_CERCOR_R01402, Copsychus_sechellarum_MTNR1A_COPSEC_R03850, Node436, Node424, Catharus_ustulatus_MTNR1A_116996539, Catharus_fuscescens_MTNR1A_CATFUS_R04063, Node439, Node423, Node417, Node415, Node405, Promerops_cafer_MTNR1A_PROCAF_R03374, Node404, Irena_cyanogastra_MTNR1A_IRECYA_R13222, Chloropsis_hardwickii_MTNR1A_CHLHAR_R13430, Node443, Node403, Parus_major_MTNR1A_107203589, Pseudopodoces_humilis_MTNR1A_102108252, Node449, Cyanistes_caeruleus_MTNR1A_111928435, Node448, Poecile_atricapillus_MTNR1A_131578825, Node447, Bombycilla_garrulus_MTNR1A_BOMGAR_R04149, Node446, Node402, Sitta_europaea_MTNR1A_SITEUR_R02345, Elachura_formosa_MTNR1A_ELAFOR_R12638, Node455, Node401, Leiothrix_lutea_MTNR1A_LEILUT_R07733, Pomatorhinus_ruficollis_MTNR1A_PORRUF_R11213, Node464, Zosterops_hypoxanthus_MTNR1A_ZOSHYP_R12568, Node463, Sinosuthora_webbiana_MTNR1A_SINWEB_R08708, Node462, Acrocephalus_arundinaceus_MTNR1A_ACRARU_R14350, Hippolais_icterina_MTNR1A_HIPICT_R06077, Node469, Node461, Brachypodius_atriceps_MTNR1A_BRAATR_R10260, Pycnonotus_jocosus_MTNR1A_PYCJOC_R09971, Node473, Locustella_ochotensis_MTNR1A_LOCOCH_R13823, Node472, Node460, Erythrocercus_mccallii_MTNR1A_ERYMCC_R13811, Hirundo_rustica_MTNR1A_120752937, Node477, Node459, Sylvietta_virens_MTNR1A_SYLVIR_R02146, Node458, Node400, Passer_montanus_MTNR1A_120497942, Pyrgilauda_ruficollis_MTNR1A_121360234, Onychostruthus_taczanowskii_MTNR1A_121348461, Node495, Node493, Taeniopygia_guttata_MTNR1A_751586, Lonchura_striata_domestica_MTNR1A_110474853, Node499, Vidua_chalybeata_MTNR1A_128787040, Vidua_macroura_MTNR1A_128806330, Node502, Node498, Node492, Motacilla_alba_MTNR1A_MOTALB_R06821, Motacilla_alba_alba_MTNR1A_119700808, Node505, Node491, Geospiza_fortis_MTNR1A_115948584, Camarhynchus_parvulus_MTNR1A_115903193, Node511, Pheucticus_melanocephalus_MTNR1A_PHEMEL_R08719, Node510, Rhodinocichla_rosea_MTNR1A_RHOROS_R10139, Node509, Nesospiza_acunhae_MTNR1A_NESACU_R11249, Node508, Node490, Agelaius_phoeniceus_MTNR1A_129120629, Molothrus_ater_MTNR1A_118686642, Node520, Setophaga_kirtlandii_MTNR1A_SETKIR_R12418, Node519, Melozone_crissalis_MTNR1A_128950622, Ammospiza_nelsoni_MTNR1A_132072406, Ammospiza_caudacuta_MTNR1A_131556942, Node527, Node525, Melospiza_georgiana_MTNR1A_131083638, Node524, Node518, Emberiza_fucata_MTNR1A_EMBFUC_R13312, Node517, Node489, Spizella_passerina_MTNR1A_SPIPAS_R08349, Quiscalus_mexicanus_MTNR1A_QUIMEX_R12478, Node533, Calcarius_ornatus_MTNR1A_CALORN_R10481, Node532, Node488, Cardinalis_cardinalis_MTNR1A_CARCAR_R10084, Passerina_amoena_MTNR1A_PASAMO_R03714, Node537, Node487, Urocynchramus_pylzowi_MTNR1A_UROPYL_R12021, Prunella_fulvescens_MTNR1A_PRUFUL_R13910, Prunella_himalayana_MTNR1A_PRUHIM_R04059, Node542, Node540, Node486, Ploceus_nigricollis_MTNR1A_PLONIG_R07902, Node485, Peucedramus_taeniatus_MTNR1A_PEUTAE_R09884, Node484, Leptocoma_aspasia_MTNR1A_LEPASP_R04045, Node483, Pomatostomus_ruficeps_MTNR1A_POSRUF_R12098, Rhipidura_dahli_MTNR1A_RHIDAH_R13056, Node555, Myiagra_hebetior_MTNR1A_MYIHEB_R09984, Node554, Lanius_ludovicianus_MTNR1A_LANLUD_R06997, Node553, Daphoenositta_chrysoptera_MTNR1A_DAPCHR_R07055, Platysteira_castanea_MTNR1A_DYACAS_R04355, Node560, Node552, Ptilonorhynchus_violaceus_MTNR1A_PTIVIO_R13485, Climacteris_rufus_MTNR1A_CLIRUF_R11555, Node567, Picathartes_gymnocephalus_MTNR1A_PICGYM_R11208, Chaetops_frenatus_MTNR1A_CHAFRE_R08014, Node570, Node566, Dasyornis_broadbenti_MTNR1A_DASBRO_R02815, Origma_solitaria_MTNR1A_ORISOL_R09299, Node573, Node565, Ifrita_kowaldi_MTNR1A_IFRKOW_R05775, Node564, Falcunculus_frontatus_MTNR1A_FALFRO_R13996, Node563, Node551, Edolisoma_coerulescens_MTNR1A_EDOCOE_R12241, Node550, Drymodes_brunneopygia_MTNR1A_DRYBRU_R12363, Node549, Regulus_satrapa_MTNR1A_REGSAT_R08413, Donacobius_atricapilla_MTNR1A_DONATR_R06966, Rhabdornis_inornatus_MTNR1A_RHAINO_R07242, Alaudala_cheleensis_MTNR1A_ALACHE_R09394, Node585, Node583, Node581, Polioptila_caerulea_MTNR1A_POLCAE_R06175, Node580, Node548, Node482, Cisticola_juncidis_MTNR1A_CISJUN_R10022, Illadopsis_cleaveri_MTNR1A_ILLCLE_R09284, Sterrhoptilus_dennistouni_MTNR1A_STEDEN_R13400, Node595, Node593, Rhadina_sibilatrix_MTNR1A_RHASIB_R02164, Node592, Hylia_prasina_MTNR1A_HYLPRA_R04713, Node591, Cettia_cetti_MTNR1A_CETCET_R02924, Node590, Certhia_brachydactyla_MTNR1A_CERBRA_R12721, Certhia_familiaris_MTNR1A_CERFAM_R12670, Node602, Anthoscopus_minutus_MTNR1A_ANTMIN_R08325, Node601, Node589, Node481, Node399, Callaeas_wilsoni_MTNR1A_CALWIL_R00572, Node398, Cnemophilus_loriae_MTNR1A_CNELOR_R09282, Node397, Node365, Orthonyx_spaldingii_MTNR1A_ORTSPA_R04658, Malurus_elegans_MTNR1A_MALELE_R05006, Malurus_cyaneus_samueli_MTNR1A_MTNR1A_2, Node611, Node609, Pardalotus_punctatus_MTNR1A_PARPUN_R10710, Grantiella_picta_MTNR1A_GRAPIC_R13067, Node614, Node608, Node364, Menura_novaehollandiae_MTNR1A_MENNOV_R02352, Atrichornis_clamosus_MTNR1A_ATRCLA_R12657, Node617, Node363, Pitta_sordida_MTNR1A_PITSOR_R04389, Calyptomena_viridis_MTNR1A_CALVIR_R05465, Node625, Serilophus_lunatus_MTNR1A_SERLUN_R01045, Node624, Sapayoa_aenigma_MTNR1A_SAPAEN_R02554, Node623, Smithornis_capensis_MTNR1A_SMICAP_R11826, Node622, Neopelma_chrysocephalum_MTNR1A_113964375, Chiroxiphia_lanceolata_MTNR1A_116786289, Corapipo_altera_MTNR1A_113943848, Node639, Lepidothrix_coronata_MTNR1A_108505925, Manacus_vitellinus_MTNR1A_N305_05822, Manacus_candei_MTNR1A_127472476, Node644, Node642, Node638, Node636, Tachuris_rubrigastra_MTNR1A_TACRUB_R08137, Node635, Oxyruncus_cristatus_MTNR1A_OXYCRI_R04028, Tyrannus_savana_MTNR1A_TYRSAV_R05597, Myiozetetes_cayanensis_MTNR1A_126651733, Node651, Node649, Mionectes_macconnelli_MTNR1A_MIOMAC_R00031, Node648, Node634, Onychorhynchus_coronatus_MTNR1A_ONYCOR_R13797, Neopipo_cinnamomea_MTNR1A_NEOCIN_R10061, Node655, Node633, Piprites_chloris_MTNR1A_PIPCHL_R01810, Node632, Grallaria_varia_MTNR1A_GRAVAR_R09671, Campylorhamphus_procurvoides_MTNR1A_CAMPRO_R08611, Xiphorhynchus_elegans_MTNR1A_XIPELE_R04867, Node665, Furnarius_figulus_MTNR1A_FURFIG_R08873, Node664, Sclerurus_mexicanus_MTNR1A_SCLMEX_R01124, Node663, Node661, Scytalopus_superciliaris_MTNR1A_SCYSUP_R11372, Formicarius_rufipectus_MTNR1A_FORRUF_R02477, Node670, Node660, Sakesphorus_luctuosus_MTNR1A_SAKLUC_R02498, Node659, Node631, Node621, Acanthisitta_chloris_MTNR1A_103811444, Cephalopterus_ornatus_MTNR1A_CEPORN_R05791, Empidonax_traillii_MTNR1A_114071582, Node678, Pachyramphus_minor_MTNR1A_PACMIN_R10440, Node677, Willisornis_vidua_MTNR1A_WISP_141790, Node676, Node674, Node620, Node362, Colius_striatus_MTNR1A_104552151, Urocolius_indicus_MTNR1A_UROIND_R00581, Node685, Corythaeola_cristata_MTNR1A_CORCRI_R12386, Corythaixoides_concolor_MTNR1A_CORCON_R11542, Node689, Tauraco_erythrolophus_MTNR1A_104374793, Node688, Node684, Bucco_capensis_MTNR1A_BUCCAP_R10206, Galbula_dea_MTNR1A_GALDEA_R11050, Node693, Node683, Node361, Bubo_bubo_MTNR1A_MTNR1A_3, Strix_occidentalis_caurina_MTNR1A_MTNR1A, Ciccaba_nigrolineata_MTNR1A_CICNIG_R06731, Node701, Node699, Otus_sunia_MTNR1A_MTNR1A, Node698, Glaucidium_brasilianum_MTNR1A_GLABRA_R11591, Athene_cunicularia_MTNR1A_113479301, Node705, Node697, Tyto_alba_MTNR1A_104364521, Node696, Node360, Node300, Phoenicopterus_ruber_ruber_MTNR1A_N337_10347, Podilymbus_podiceps_MTNR1A_PODPOD_R06922, Podiceps_cristatus_MTNR1A_N338_02819, Node711, Node709, Node299, Steatornis_caripensis_MTNR1A_STECAR_R03645, Eurypyga_helias_MTNR1A_104509108, Rhynochetos_jubatus_MTNR1A_RHYJUB_R01068, Node724, Node722, Herpetotheres_cachinnans_MTNR1A_HERCAC_R01154, Node721, Ciconia_maguari_MTNR1A_CICMAG_R12671, Node720, Phalacrocorax_carbo_MTNR1A_104047760, Anhinga_anhinga_MTNR1A_ANHANH_R11217, Node729, Node719, Scopus_umbretta_MTNR1A_SCOUMB_R12038, Charadrius_vociferus_MTNR1A_104285456, Himantopus_himantopus_MTNR1A_HIMHIM_R09432, Ibidorhyncha_struthersii_MTNR1A_IBISTR_R07105, Node737, Node735, Node733, Nipponia_nippon_MTNR1A_104021389, Mesembrinibis_cayennensis_MTNR1A_MESCAY_R08679, Node740, Node732, Node718, Piaya_cayana_MTNR1A_PIACAY_R08468, Node717, Fregata_magnificens_MTNR1A_FREMAG_R04018, Pelecanoides_urinatrix_MTNR1A_PELURI_R10272, Calonectris_borealis_MTNR1A_CALBOR_R02627, Node746, Node744, Node716, Thalassarche_chlororhynchos_MTNR1A_THACHL_R12044, Sagittarius_serpentarius_MTNR1A_SAGSER_R13283, Pandion_haliaetus_MTNR1A_PANHAL_R03771, Spizaetus_tyrannus_MTNR1A_SPITYR_R02915, Circaetus_pectoralis_MTNR1A_CIRPEC_R11891, Node757, Node755, Node753, Node751, Chloroceryle_aenea_MTNR1A_CHLAEN_R01280, Halcyon_senegalensis_MTNR1A_HALSEN_R11990, Node762, Baryphthengus_martii_MTNR1A_BARMAR_R11284, Node761, Eurystomus_gularis_MTNR1A_EURGUL_R06961, Node760, Node750, Psophia_crepitans_MTNR1A_PSOCRE_R11582, Heliornis_fulica_MTNR1A_HELFUL_R12710, Atlantisia_rogersi_MTNR1A_ATLROG_R10497, Zapornia_atra_MTNR1A_ZAPATR_R06890, Node772, Node770, Node768, Lophotis_ruficrista_MTNR1A_LOPRUF_R04077, Ardeotis_kori_MTNR1A_ARDKOR_R02562, Node776, Cochlearius_cochlearius_MTNR1A_COCCOC_R09202, Egretta_garzetta_MTNR1A_104129440, Node779, Node775, Node767, Node749, Node715, Opisthocomus_hoazin_MTNR1A_104334551, Phaethon_lepturus_MTNR1A_104615875, Node782, Node714, Node298, Gymnogyps_californianus_MTNR1A_127015835, Cathartes_aura_MTNR1A_N323_10550, Node787, Burhinus_bistriatus_MTNR1A_BURBIS_R08029, Node786, Oceanodroma_tethys_MTNR1A_HYDTET_R09711, Node785, Node297, Node287, Aptenodytes_patagonicus_MTNR1A_MTNR1A, Pygoscelis_adeliae_MTNR1A_103922562, Node805, Pygoscelis_antarcticus_MTNR1A_FQV08_0015024, Node804, Eudyptula_albosignata_MTNR1A_FQV20_0015541, Eudyptula_novaehollandiae_MTNR1A_FQV18_0003129, Eudyptula_novaehollandiae_MTNR1A_FQV18_0003372, Node811, Node809, Node803, Spheniscus_demersus_MTNR1A_FQV21_0002060, Node802, Megadyptes_antipodes_antipodes_MTNR1A_FQV17_0003938, Node801, Eudyptes_chrysolophus_MTNR1A_FQV09_0000620, Node800, Eudyptes_sclateri_MTNR1A_MTNR1A, Node799, Eudyptes_robustus_MTNR1A_MTNR1A, Node798, Eudyptes_filholi_MTNR1A_MTNR1A_2, Node797, Eudyptes_chrysocome_MTNR1A_MTNR1A, Node796, Eudyptes_pachyrhynchus_MTNR1A_MTNR1A, Node795, Eudyptes_schlegeli_MTNR1A_FQV10_0015212, Eudyptes_moseleyi_MTNR1A_MTNR1A, Node822, Node794, Spheniscus_humboldti_MTNR1A_FQV23_0001872, Spheniscus_mendiculus_MTNR1A_FQV24_0008267, Node828, Spheniscus_magellanicus_MTNR1A_FQV22_0008835, Node827, Pygoscelis_papua_MTNR1A_KCX85_0005142, Node826, Eudyptula_minor_MTNR1A_FQV19_0013298, Node825, Node793, Mesitornis_unicolor_MTNR1A_104546768, Chordeiles_acutipennis_MTNR1A_CHOACU_R08398, Antrostomus_carolinensis_MTNR1A_104532917, Node837, Nyctiprogne_leucopyga_MTNR1A_NYCLEU_R06584, Node836, Node834, Node792, Node286, Node234, Node214, Node170, Node146, Node138, Node114, Zootoca_vivipara_MTNR1A_118083563, Lacerta_agilis_MTNR1A_117052954, Node845, Podarcis_muralis_MTNR1A_114604252, Podarcis_raffonei_MTNR1A_128420673, Node848, Node844, Anolis_carolinensis_MTNR1A_100557231, Pogona_vitticeps_MTNR1A_110077907, Node852, Hemicordylus_capensis_MTNR1A_128328134, Node851, Node843, Gekko_japonicus_MTNR1A_107115812, Euleptes_europaea_MTNR1A_130482364, Node857, Eublepharis_macularius_MTNR1A_129336528, Node856, Node842, Notechis_scutatus_MTNR1A_113411768, Pseudonaja_textilis_MTNR1A_113434570, Node864, Naja_naja_MTNR1A_MTNR1A, Node863, Thamnophis_elegans_MTNR1A_116513531, Pantherophis_guttatus_MTNR1A_117680134, Pantherophis_guttatus_MTNR1A_MTNR1A, Node871, Ahaetulla_prasina_MTNR1A_131203459, Node870, Node868, Node862, Protobothrops_mucrosquamatus_MTNR1A_107302681, Node861, Node841, Node113, Node85, Sarcophilus_harrisii_MTNR1A_100919454, Antechinus_flavipes_MTNR1A_127541439, Node878, Trichosurus_vulpecula_MTNR1A_118854690, Vombatus_ursinus_MTNR1A_114024586, Node882, Dromiciops_gliroides_MTNR1A_122732703, Node881, Node877, Gracilinanus_agilis_MTNR1A_123251107, Node876, Node84, Sorex_cinereus_MTNR1A_130023807, Suncus_etruscus_MTNR1A_126006844, Node889, Talpa_occidentalis_MTNR1A_119257002, Condylura_cristata_MTNR1A_101631353, Node892, Node888, Echinops_telfairi_MTNR1A_101649538, Elephantulus_edwardii_MTNR1A_102870612, Node900, Elephas_maximus_indicus_MTNR1A_126065335, Trichechus_manatus_latirostris_MTNR1A_MTNR1A, Node903, Node899, Ochotona_princeps_MTNR1A_101527616, Ochotona_curzoniae_MTNR1A_121146821, Node909, Oryctolagus_cuniculus_MTNR1A_100344713, Node908, Marmota_himalayana_MTNR1A_MTNR1A, Marmota_flaviventris_MTNR1A_114085909, Node916, Sciurus_carolinensis_MTNR1A_124983082, Sciurus_vulgaris_MTNR1A_MTNR1A, Node919, Node915, Hydrochoerus_hydrochaeris_MTNR1A_MTNR1A, Cavia_tschudii_MTNR1A_MTNR1A, Node923, Chinchilla_lanigera_MTNR1A_102008174, Node922, Node914, Perognathus_longimembris_pacificus_MTNR1A_125339639, Dipodomys_spectabilis_MTNR1A_122127710, Node928, Phodopus_roborovskii_MTNR1A_127220495, Mesocricetus_auratus_MTNR1A_101827657, Node935, Microtus_oregoni_MTNR1A_121433890, Microtus_fortis_MTNR1A_126504790, Node940, Arvicola_amphibius_MTNR1A_119813720, Node939, Myodes_glareolus_MTNR1A_125413985, Node938, Node934, Peromyscus_eremicus_MTNR1A_131894709, Peromyscus_californicus_insignis_MTNR1A_128119393, Node948, Peromyscus_leucopus_MTNR1A_114701146, Node947, Onychomys_torridus_MTNR1A_118597660, Node946, Sigmodon_hispidus_MTNR1A_MTNR1A, Node945, Node933, Mus_pahari_MTNR1A_110337041, Mus_musculus_MTNR1A_Mel1AR, Mus_musculus_MTNR1A_Mel1AR_2, Node964, Mus_musculus_musculus_MTNR1A_MTNR1A, Mus_musculus_molossinus_MTNR1A_MTNR1A, Node967, Node963, Mus_musculus_domesticus_MTNR1A_MTNR1A, Node962, Mus_musculus_castaneus_MTNR1A_MTNR1A, Node961, Mus_spretus_MTNR1A_MTNR1A, Node960, Node958, Apodemus_sylvaticus_MTNR1A_127668856, Node957, Arvicanthis_niloticus_MTNR1A_117722039, Node956, Rattus_rattus_MTNR1A_116914896, Rattus_norvegicus_MTNR1A_MTNR1A, Node975, Node955, Acomys_cahirinus_MTNR1A_MTNR1A, Acomys_dimidiatus_MTNR1A_MTNR1A, Node980, Acomys_russatus_MTNR1A_127210338, Node979, Meriones_unguiculatus_MTNR1A_110562785, Node978, Node954, Node932, Rhizomys_pruinosus_MTNR1A_MTNR1A, Node931, Node927, Node913, Node907, Galeopterus_variegatus_MTNR1A_103607599, Node906, Node898, Canis_lupus_MTNR1A_MTNR1A, Canis_lupus_familiaris_MTNR1A_MTNR1A, Node992, Canis_lupus_familiaris_MTNR1A_482904, Node991, Vulpes_lagopus_MTNR1A_121488943, Node990, Mustela_lutreola_MTNR1A_131820640, Mustela_putorius_MTNR1A_MTNR1A, Mustela_nigripes_MTNR1A_132006523, Node1003, Node1001, Mustela_erminea_MTNR1A_116581949, Node1000, Martes_zibellina_MTNR1A_MTNR1A, Node999, Mirounga_leonina_MTNR1A_118009809, Node998, Ursus_arctos_MTNR1A_113262290, Ursus_americanus_MTNR1A_123784565, Node1010, Ursus_arctos_horribilis_MTNR1A_MTNR1A, Node1009, Node997, Node989, Panthera_pardus_MTNR1A_109250988, Panthera_uncia_MTNR1A_125923453, Panthera_leo_x_Panthera_tigris_MTNR1A_MTNR1A, Node1017, Node1015, Prionailurus_viverrinus_MTNR1A_125163612, Felis_catus_x_Prionailurus_bengalensis_MTNR1A_MTNR1A, Node1021, Felis_catus_x_Leopardus_geoffroyi_MTNR1A_MTNR1A, Node1020, Node1014, Node988, Manis_pentadactyla_MTNR1A_118916980, Node987, Node897, Artibeus_jamaicensis_MTNR1A_119036922, Sturnira_hondurensis_MTNR1A_118992993, Node1032, Phyllostomus_hastatus_MTNR1A_123807691, Node1031, Desmodus_rotundus_MTNR1A_112306797, Node1030, Pteronotus_parnellii_mesoamericanus_MTNR1A_129064698, Node1029, Myotis_myotis_MTNR1A_118652050, Myotis_brandtii_MTNR1A_102249711, Node1039, Pipistrellus_kuhlii_MTNR1A_118730145, Node1038, Node1028, Lemur_catta_MTNR1A_123637718, Cheirogaleus_medius_MTNR1A_MTNR1A, Node1045, Otolemur_garnettii_MTNR1A_100955874, Nycticebus_coucang_MTNR1A_128588933, Node1049, Daubentonia_madagascariensis_MTNR1A_MTNR1A, Node1048, Node1044, Macaca_thibetana_thibetana_MTNR1A_126955237, Rhinopithecus_bieti_MTNR1A_108522437, Rhinopithecus_roxellana_MTNR1A_104673820, Node1057, Node1055, Hylobates_pileatus_MTNR1A_MTNR1A, Pongo_pygmaeus_MTNR1A_129034694, Node1061, Homo_sapiens_MTNR1A_Mel1AR, Homo_sapiens_MTNR1A_Mel1AR_2, Node1064, Node1060, Node1054, Alouatta_palliata_MTNR1A_MTNR1A, Node1053, Node1043, Node1027, Hippopotamus_amphibius_kiboko_MTNR1A_130830309, Cervus_hanglu_yarkandensis_MTNR1A_MTNR1A, Bos_taurus_MTNR1A_Mel1AR, Bubalus_bubalis_MTNR1A_102415439, Node1074, Ovis_aries_MTNR1A_Mel1AR, Node1073, Node1071, Node1069, Camelus_dromedarius_MTNR1A_105102400, Node1068, Node1026, Node896, Pteropus_giganteus_MTNR1A_120583800, Megaderma_lyra_MTNR1A_MTNR1A, Hipposideros_galeritus_MTNR1A_MTNR1A, Node1082, Node1080, Equus_quagga_MTNR1A_124231589, Equus_przewalskii_MTNR1A_103549958, Node1086, Diceros_bicornis_minor_MTNR1A_131393951, Ceratotherium_simum_cottoni_MTNR1A_MTNR1A, Node1089, Node1085, Node1079, Node895, Node887, Node83, Node3, Eudyptes_sclateri_MTNR1A_MTNR1A_2, Eudyptes_filholi_MTNR1A_MTNR1A, Node1094, Bubo_bubo_MTNR1A_MTNR1A_2, Node1093, Malurus_cyaneus_samueli_MTNR1A_MTNR1A, Node1092, Bubo_bubo_MTNR1A_MTNR1A`
+
+>precision => standard
+
+
+### Obtaining branch lengths and nucleotide substitution biases under the nucleotide GTR model
+
+>kill-zero-lengths => Yes
+
+### Deleted 72 zero-length internal branches: `Node1010, Node1061, Node124, Node182, Node216, Node234, Node239, Node247, Node297, Node298, Node300, Node302, Node361, Node367, Node368, Node375, Node382, Node386, Node393, Node397, Node400, Node401, Node449, Node460, Node481, Node482, Node486, Node489, Node490, Node498, Node508, Node525, Node548, Node551, Node552, Node564, Node566, Node580, Node621, Node625, Node631, Node633, Node639, Node648, Node655, Node661, Node684, Node714, Node715, Node716, Node717, Node718, Node719, Node751, Node792, Node795, Node796, Node797, Node798, Node799, Node800, Node801, Node803, Node804, Node805, Node825, Node826, Node857, Node897, Node963, Node964, Node992`
+* Log(L) = -93240.96, AIC-c = 188692.32 (1105 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site) 17.428
+
+### Obtaining the global omega estimate based on relative GTR branch lengths and nucleotide substitution biases
+* Log(L) = -86399.08, AIC-c = 174879.25 (1040 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site) 18.944
+* non-synonymous/synonymous rate ratio for *test* =   0.1449
+
+>full-model => Yes
+
+### Improving branch lengths, nucleotide substitution biases, and global dN/dS ratios under a full codon model
+* Log(L) = -85956.96, AIC-c = 173995.00 (1040 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site) 20.707
+* non-synonymous/synonymous rate ratio for *test* =   0.1219
+
+### For partition 1 these sites are significant at p <=0.1
+
+|     Codon      |   Partition    |     alpha      |      beta      |      LRT       |Selection detected?|
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:-----------------:|
+|       45       |       1        |      100.000   |        0.000   |        2.718   |  Neg. p = 0.0992  |
+|      304       |       1        |        1.103   |        0.000   |        5.448   |  Neg. p = 0.0196  |
+|      305       |       1        |        0.884   |        0.000   |        4.161   |  Neg. p = 0.0414  |
+|      315       |       1        |        0.958   |        0.000   |        4.301   |  Neg. p = 0.0381  |
+|      316       |       1        |        1.282   |        0.188   |        3.307   |  Neg. p = 0.0690  |
+|      320       |       1        |        1.268   |        0.000   |        6.975   |  Neg. p = 0.0083  |
+|      323       |       1        |        0.978   |        0.000   |        5.308   |  Neg. p = 0.0212  |
+|      325       |       1        |        1.294   |        0.000   |        7.104   |  Neg. p = 0.0077  |
+|      1542      |       1        |        4.789   |        0.295   |        7.395   |  Neg. p = 0.0065  |
+|      1547      |       1        |        1.125   |        0.000   |        3.245   |  Neg. p = 0.0717  |
+|      1548      |       1        |        1.542   |        0.000   |        5.142   |  Neg. p = 0.0234  |
+|      1553      |       1        |        2.946   |        0.181   |       12.524   |  Neg. p = 0.0004  |
+|      1554      |       1        |        1.113   |        0.000   |        8.198   |  Neg. p = 0.0042  |
+|      1558      |       1        |    10000.000   |        0.191   |        8.133   |  Neg. p = 0.0043  |
+|      1563      |       1        |        0.768   |        0.000   |        5.260   |  Neg. p = 0.0218  |
+|      1828      |       1        |       43.352   |        0.013   |        3.904   |  Neg. p = 0.0482  |
+|      1831      |       1        |       37.295   |        0.000   |        3.871   |  Neg. p = 0.0491  |
+|      2079      |       1        |        2.576   |        0.251   |        3.356   |  Neg. p = 0.0670  |
+|      2094      |       1        |        2.240   |        0.313   |       37.806   |  Neg. p = 0.0000  |
+|      2111      |       1        |        4.343   |        0.000   |        3.931   |  Neg. p = 0.0474  |
+|      2124      |       1        |        7.307   |        0.000   |        5.416   |  Neg. p = 0.0200  |
+|      2127      |       1        |        2.092   |        0.266   |       22.850   |  Neg. p = 0.0000  |
+|      2128      |       1        |        1.094   |        0.574   |        4.233   |  Neg. p = 0.0397  |
+|      2135      |       1        |      367.978   |        0.000   |        3.938   |  Neg. p = 0.0472  |
+|      2148      |       1        |        1.224   |        0.070   |       28.259   |  Neg. p = 0.0000  |
+|      2150      |       1        |        1.696   |        0.161   |       39.635   |  Neg. p = 0.0000  |
+|      2151      |       1        |        1.522   |        0.184   |        8.668   |  Neg. p = 0.0032  |
+|      2152      |       1        |        1.607   |        0.320   |        6.425   |  Neg. p = 0.0113  |
+|      2154      |       1        |        0.830   |        0.090   |        6.258   |  Neg. p = 0.0124  |
+|      2158      |       1        |        1.497   |        0.249   |        4.876   |  Neg. p = 0.0272  |
+|      2165      |       1        |        1.337   |        0.418   |        4.059   |  Neg. p = 0.0439  |
+|      2170      |       1        |        2.130   |        0.301   |        6.753   |  Neg. p = 0.0094  |
+|      2172      |       1        |        1.623   |        0.383   |        6.572   |  Neg. p = 0.0104  |
+|      2174      |       1        |        1.165   |        0.322   |        5.027   |  Neg. p = 0.0250  |
+|      2175      |       1        |        1.378   |        0.324   |        4.897   |  Neg. p = 0.0269  |
+|      2210      |       1        |        1.360   |        0.324   |        5.397   |  Neg. p = 0.0202  |
+|      2212      |       1        |        1.253   |        0.407   |        2.741   |  Neg. p = 0.0978  |
+|      2222      |       1        |        8.148   |        0.000   |        3.099   |  Neg. p = 0.0784  |
+|      2226      |       1        |        1.846   |        0.563   |        2.951   |  Neg. p = 0.0858  |
+|      2228      |       1        |        1.575   |        0.030   |       16.855   |  Neg. p = 0.0000  |
+|      2232      |       1        |        1.492   |        0.389   |       20.147   |  Neg. p = 0.0000  |
+|      2273      |       1        |        1.373   |        0.282   |       11.077   |  Neg. p = 0.0009  |
+|      2298      |       1        |        0.886   |        0.423   |        4.368   |  Neg. p = 0.0366  |
+|      2325      |       1        |        9.371   |        0.000   |        2.932   |  Neg. p = 0.0868  |
+|      2326      |       1        |        1.535   |        0.096   |       51.764   |  Neg. p = 0.0000  |
+|      2327      |       1        |        0.968   |        0.125   |       35.365   |  Neg. p = 0.0000  |
+|      2328      |       1        |        1.939   |        0.253   |       56.592   |  Neg. p = 0.0000  |
+|      2350      |       1        |        0.368   |        0.174   |        3.410   |  Neg. p = 0.0648  |
+|      2356      |       1        |        0.803   |        0.335   |        7.837   |  Neg. p = 0.0051  |
+|      2357      |       1        |        0.927   |        0.432   |        6.251   |  Neg. p = 0.0124  |
+|      2397      |       1        |        1.251   |        0.329   |       22.764   |  Neg. p = 0.0000  |
+|      2398      |       1        |        1.499   |        0.015   |       77.588   |  Neg. p = 0.0000  |
+|      2399      |       1        |        1.072   |        0.019   |       71.941   |  Neg. p = 0.0000  |
+|      2402      |       1        |        0.396   |        0.012   |       25.511   |  Neg. p = 0.0000  |
+|      2404      |       1        |        0.807   |        0.220   |       11.092   |  Neg. p = 0.0009  |
+|      2405      |       1        |        0.487   |        0.048   |       24.326   |  Neg. p = 0.0000  |
+|      2406      |       1        |        1.108   |        0.068   |       41.436   |  Neg. p = 0.0000  |
+|      2438      |       1        |        0.630   |        0.207   |       10.197   |  Neg. p = 0.0014  |
+|      2439      |       1        |        0.415   |        0.082   |       12.030   |  Neg. p = 0.0005  |
+|      2440      |       1        |        0.582   |        0.020   |       27.374   |  Neg. p = 0.0000  |
+|      2441      |       1        |        0.875   |        0.309   |       10.116   |  Neg. p = 0.0015  |
+|      2453      |       1        |        0.522   |        0.000   |       44.857   |  Neg. p = 0.0000  |
+|      2454      |       1        |        0.549   |        0.010   |       27.524   |  Neg. p = 0.0000  |
+|      2455      |       1        |        0.987   |        0.272   |       17.572   |  Neg. p = 0.0000  |
+|      2456      |       1        |        0.348   |        0.021   |       17.105   |  Neg. p = 0.0000  |
+|      2457      |       1        |        0.559   |        0.000   |       40.207   |  Neg. p = 0.0000  |
+|      2458      |       1        |        0.467   |        0.078   |       12.734   |  Neg. p = 0.0004  |
+|      2459      |       1        |        0.571   |        0.168   |       10.044   |  Neg. p = 0.0015  |
+|      2460      |       1        |        1.728   |        0.051   |       84.227   |  Neg. p = 0.0000  |
+|      2461      |       1        |        0.791   |        0.038   |       43.265   |  Neg. p = 0.0000  |
+|      2462      |       1        |        1.548   |        0.349   |       20.967   |  Neg. p = 0.0000  |
+|      2463      |       1        |        0.678   |        0.108   |       21.227   |  Neg. p = 0.0000  |
+|      2464      |       1        |        0.961   |        0.038   |       38.000   |  Neg. p = 0.0000  |
+|      2465      |       1        |        0.482   |        0.060   |       13.016   |  Neg. p = 0.0003  |
+|      2466      |       1        |        0.505   |        0.059   |       16.404   |  Neg. p = 0.0001  |
+|      2485      |       1        |        0.468   |        0.029   |       25.117   |  Neg. p = 0.0000  |
+|      2486      |       1        |        1.553   |        0.057   |       82.855   |  Neg. p = 0.0000  |
+|      2499      |       1        |        0.661   |        0.055   |       24.186   |  Neg. p = 0.0000  |
+|      2655      |       1        |        0.483   |        0.210   |        5.403   |  Neg. p = 0.0201  |
+|      2731      |       1        |       32.738   |        0.000   |        2.975   |  Neg. p = 0.0846  |
+|      2734      |       1        |      371.939   |        0.000   |        3.553   |  Neg. p = 0.0594  |
+|      2735      |       1        |      371.939   |        0.000   |        3.451   |  Neg. p = 0.0632  |
+|      2880      |       1        |        1.395   |        0.000   |        7.558   |  Neg. p = 0.0060  |
+|      2881      |       1        |        0.730   |        0.000   |        2.982   |  Neg. p = 0.0842  |
+|      2882      |       1        |        1.455   |        0.000   |        7.749   |  Neg. p = 0.0054  |
+|      2886      |       1        |        0.928   |        0.000   |        4.613   |  Neg. p = 0.0317  |
+|      2888      |       1        |        3.280   |        0.000   |       12.770   |  Neg. p = 0.0004  |
+|      2889      |       1        |        3.073   |        0.000   |       16.486   |  Neg. p = 0.0000  |
+|      2890      |       1        |        0.928   |        0.000   |        5.235   |  Neg. p = 0.0221  |
+|      2894      |       1        |        0.873   |        0.000   |        3.179   |  Neg. p = 0.0746  |
+|      2895      |       1        |        0.916   |        0.000   |        5.029   |  Neg. p = 0.0249  |
+|      2899      |       1        |        2.913   |        0.000   |       11.621   |  Neg. p = 0.0007  |
+|      2905      |       1        |        2.761   |        0.000   |       11.245   |  Neg. p = 0.0008  |
+|      2907      |       1        |        0.617   |        0.000   |        2.741   |  Neg. p = 0.0978  |
+|      2908      |       1        |        2.364   |        0.000   |       10.776   |  Neg. p = 0.0010  |
+|      2909      |       1        |        1.395   |        0.000   |        6.956   |  Neg. p = 0.0084  |
+|      2910      |       1        |        1.374   |        0.000   |        6.793   |  Neg. p = 0.0092  |
+|      2911      |       1        |        1.802   |        0.000   |        6.103   |  Neg. p = 0.0135  |
+|      2912      |       1        |        1.395   |        0.000   |        7.589   |  Neg. p = 0.0059  |
+|      2913      |       1        |        1.781   |        0.000   |        7.305   |  Neg. p = 0.0069  |
+|      2915      |       1        |        0.720   |        0.000   |        3.245   |  Neg. p = 0.0716  |
+|      2917      |       1        |        2.471   |        0.000   |       12.612   |  Neg. p = 0.0004  |
+|      3004      |       1        |        0.433   |        0.000   |       48.118   |  Neg. p = 0.0000  |
+|      3060      |       1        |        0.846   |        0.009   |       64.325   |  Neg. p = 0.0000  |
+|      3061      |       1        |        0.746   |        0.305   |        9.539   |  Neg. p = 0.0020  |
+|      3062      |       1        |        0.478   |        0.000   |       37.451   |  Neg. p = 0.0000  |
+|      3063      |       1        |        0.445   |        0.028   |       31.419   |  Neg. p = 0.0000  |
+|      3064      |       1        |        0.395   |        0.058   |       19.347   |  Neg. p = 0.0000  |
+|      3065      |       1        |        0.581   |        0.036   |       28.599   |  Neg. p = 0.0000  |
+|      3066      |       1        |        0.591   |        0.000   |       52.181   |  Neg. p = 0.0000  |
+|      3067      |       1        |        0.956   |        0.030   |       82.039   |  Neg. p = 0.0000  |
+|      3068      |       1        |        0.728   |        0.273   |       11.368   |  Neg. p = 0.0007  |
+|      3069      |       1        |        0.712   |        0.007   |       78.144   |  Neg. p = 0.0000  |
+|      3070      |       1        |        0.725   |        0.008   |       50.269   |  Neg. p = 0.0000  |
+|      3072      |       1        |        0.564   |        0.000   |       46.784   |  Neg. p = 0.0000  |
+|      3073      |       1        |        1.031   |        0.121   |       47.140   |  Neg. p = 0.0000  |
+|      3111      |       1        |        0.493   |        0.038   |       32.884   |  Neg. p = 0.0000  |
+|      3112      |       1        |        0.979   |        0.008   |       98.079   |  Neg. p = 0.0000  |
+|      3113      |       1        |        0.731   |        0.241   |       11.563   |  Neg. p = 0.0007  |
+|      3114      |       1        |        0.946   |        0.010   |       54.552   |  Neg. p = 0.0000  |
+|      3144      |       1        |        1.117   |        0.008   |      113.467   |  Neg. p = 0.0000  |
+|      3145      |       1        |        1.697   |        0.061   |       74.259   |  Neg. p = 0.0000  |
+|      3146      |       1        |        1.123   |        0.000   |      120.153   |  Neg. p = 0.0000  |
+|      3147      |       1        |        0.536   |        0.041   |       30.465   |  Neg. p = 0.0000  |
+|      3148      |       1        |        0.496   |        0.075   |       21.948   |  Neg. p = 0.0000  |
+|      3149      |       1        |        0.351   |        0.039   |       19.330   |  Neg. p = 0.0000  |
+|      3150      |       1        |        0.727   |        0.230   |       16.138   |  Neg. p = 0.0001  |
+|      3151      |       1        |        0.789   |        0.017   |       67.896   |  Neg. p = 0.0000  |
+|      3152      |       1        |        1.060   |        0.101   |       50.758   |  Neg. p = 0.0000  |
+|      3153      |       1        |        0.646   |        0.170   |       12.274   |  Neg. p = 0.0005  |
+|      3154      |       1        |        0.904   |        0.136   |       25.884   |  Neg. p = 0.0000  |
+|      3155      |       1        |        3.315   |        0.180   |      120.831   |  Neg. p = 0.0000  |
+|      3156      |       1        |        0.433   |        0.044   |       27.353   |  Neg. p = 0.0000  |
+|      3158      |       1        |        1.066   |        0.282   |       19.821   |  Neg. p = 0.0000  |
+|      3159      |       1        |        0.368   |        0.040   |       18.768   |  Neg. p = 0.0000  |
+|      3160      |       1        |        0.645   |        0.007   |       66.743   |  Neg. p = 0.0000  |
+|      3161      |       1        |        1.642   |        0.322   |       31.812   |  Neg. p = 0.0000  |
+|      3162      |       1        |        0.697   |        0.307   |        7.823   |  Neg. p = 0.0052  |
+|      3163      |       1        |        1.011   |        0.053   |       47.825   |  Neg. p = 0.0000  |
+|      3164      |       1        |        0.465   |        0.008   |       29.987   |  Neg. p = 0.0000  |
+|      3165      |       1        |        1.033   |        0.056   |       52.822   |  Neg. p = 0.0000  |
+|      3166      |       1        |        1.257   |        0.378   |       20.557   |  Neg. p = 0.0000  |
+|      3167      |       1        |        1.262   |        0.014   |       98.584   |  Neg. p = 0.0000  |
+|      3168      |       1        |        1.318   |        0.093   |       80.923   |  Neg. p = 0.0000  |
+|      3169      |       1        |        1.023   |        0.000   |       67.649   |  Neg. p = 0.0000  |
+|      3170      |       1        |        0.712   |        0.137   |       23.797   |  Neg. p = 0.0000  |
+|      3172      |       1        |        0.640   |        0.000   |       74.251   |  Neg. p = 0.0000  |
+|      3173      |       1        |        0.948   |        0.113   |       43.199   |  Neg. p = 0.0000  |
+|      3174      |       1        |        1.526   |        0.007   |      121.269   |  Neg. p = 0.0000  |
+|      3175      |       1        |        0.525   |        0.029   |       35.729   |  Neg. p = 0.0000  |
+|      3176      |       1        |        1.273   |        0.113   |       58.164   |  Neg. p = 0.0000  |
+|      3177      |       1        |        0.315   |        0.079   |       10.433   |  Neg. p = 0.0012  |
+|      3178      |       1        |        1.289   |        0.012   |      101.133   |  Neg. p = 0.0000  |
+|      3179      |       1        |        0.801   |        0.162   |       21.242   |  Neg. p = 0.0000  |
+|      3180      |       1        |        0.469   |        0.000   |       32.552   |  Neg. p = 0.0000  |
+|      3181      |       1        |        1.235   |        0.043   |       69.622   |  Neg. p = 0.0000  |
+|      3182      |       1        |        0.813   |        0.000   |       67.098   |  Neg. p = 0.0000  |
+|      3183      |       1        |        1.714   |        0.063   |      122.673   |  Neg. p = 0.0000  |
+|      3184      |       1        |        0.692   |        0.034   |       50.688   |  Neg. p = 0.0000  |
+|      3185      |       1        |        1.423   |        0.010   |      104.927   |  Neg. p = 0.0000  |
+|      3186      |       1        |        0.813   |        0.000   |       85.588   |  Neg. p = 0.0000  |
+|      3187      |       1        |        1.109   |        0.233   |       29.258   |  Neg. p = 0.0000  |
+|      3188      |       1        |        0.913   |        0.000   |       71.126   |  Neg. p = 0.0000  |
+|      3189      |       1        |        1.024   |        0.019   |       90.222   |  Neg. p = 0.0000  |
+|      3190      |       1        |        0.882   |        0.000   |       56.352   |  Neg. p = 0.0000  |
+|      3191      |       1        |        0.732   |        0.028   |       38.149   |  Neg. p = 0.0000  |
+|      3192      |       1        |        1.507   |        0.062   |       67.178   |  Neg. p = 0.0000  |
+|      3193      |       1        |        0.651   |        0.064   |       28.794   |  Neg. p = 0.0000  |
+|      3194      |       1        |        0.626   |        0.009   |       39.441   |  Neg. p = 0.0000  |
+|      3195      |       1        |        0.628   |        0.008   |       41.701   |  Neg. p = 0.0000  |
+|      3196      |       1        |        1.719   |        0.051   |      101.578   |  Neg. p = 0.0000  |
+|      3197      |       1        |        0.462   |        0.126   |       11.953   |  Neg. p = 0.0005  |
+|      3198      |       1        |        0.812   |        0.217   |       13.599   |  Neg. p = 0.0002  |
+|      3199      |       1        |        3.936   |        0.012   |      193.226   |  Neg. p = 0.0000  |
+|      3200      |       1        |        0.498   |        0.103   |       11.810   |  Neg. p = 0.0006  |
+|      3201      |       1        |        1.418   |        0.196   |       43.061   |  Neg. p = 0.0000  |
+|      3202      |       1        |        0.903   |        0.187   |       28.287   |  Neg. p = 0.0000  |
+|      3209      |       1        |        0.490   |        0.078   |       13.253   |  Neg. p = 0.0003  |
+|      3210      |       1        |        3.230   |        0.055   |      172.489   |  Neg. p = 0.0000  |
+|      3213      |       1        |        1.195   |        0.067   |       60.687   |  Neg. p = 0.0000  |
+|      3214      |       1        |        1.958   |        0.104   |      110.962   |  Neg. p = 0.0000  |
+|      3215      |       1        |        1.604   |        0.369   |       35.694   |  Neg. p = 0.0000  |
+|      3216      |       1        |        0.805   |        0.145   |       19.591   |  Neg. p = 0.0000  |
+|      3217      |       1        |        3.203   |        0.145   |      120.817   |  Neg. p = 0.0000  |
+|      3218      |       1        |        0.532   |        0.127   |       14.829   |  Neg. p = 0.0001  |
+|      3219      |       1        |        0.855   |        0.437   |        6.321   |  Neg. p = 0.0119  |
+|      3220      |       1        |        0.976   |        0.100   |       46.889   |  Neg. p = 0.0000  |
+|      3221      |       1        |        1.946   |        0.037   |      120.325   |  Neg. p = 0.0000  |
+|      3224      |       1        |        1.182   |        0.000   |       97.394   |  Neg. p = 0.0000  |
+|      3225      |       1        |        1.966   |        0.036   |      158.302   |  Neg. p = 0.0000  |
+|      3226      |       1        |        1.880   |        0.316   |       50.404   |  Neg. p = 0.0000  |
+|      3227      |       1        |        0.808   |        0.272   |       15.353   |  Neg. p = 0.0001  |
+|      3228      |       1        |        1.009   |        0.017   |       87.665   |  Neg. p = 0.0000  |
+|      3229      |       1        |        2.940   |        0.094   |      145.390   |  Neg. p = 0.0000  |
+|      3231      |       1        |        0.594   |        0.000   |       63.417   |  Neg. p = 0.0000  |
+|      3232      |       1        |        1.324   |        0.000   |       98.039   |  Neg. p = 0.0000  |
+|      3233      |       1        |        1.321   |        0.135   |       59.449   |  Neg. p = 0.0000  |
+|      3234      |       1        |        1.232   |        0.221   |       32.208   |  Neg. p = 0.0000  |
+|      3235      |       1        |        0.837   |        0.247   |       17.038   |  Neg. p = 0.0000  |
+|      3236      |       1        |        0.665   |        0.098   |       32.688   |  Neg. p = 0.0000  |
+|      3237      |       1        |        2.381   |        0.043   |      163.539   |  Neg. p = 0.0000  |
+|      3238      |       1        |        1.509   |        0.000   |      121.290   |  Neg. p = 0.0000  |
+|      3239      |       1        |        2.822   |        0.128   |      115.529   |  Neg. p = 0.0000  |
+|      3240      |       1        |        3.162   |        0.012   |      165.889   |  Neg. p = 0.0000  |
+|      3241      |       1        |        0.646   |        0.000   |       51.222   |  Neg. p = 0.0000  |
+|      3242      |       1        |        0.972   |        0.063   |       63.899   |  Neg. p = 0.0000  |
+|      3243      |       1        |        1.199   |        0.018   |       98.335   |  Neg. p = 0.0000  |
+|      3244      |       1        |        0.470   |        0.181   |        6.279   |  Neg. p = 0.0122  |
+|      3245      |       1        |        1.711   |        0.099   |       65.795   |  Neg. p = 0.0000  |
+|      3246      |       1        |        2.255   |        0.000   |      177.634   |  Neg. p = 0.0000  |
+|      3247      |       1        |        1.635   |        0.000   |      121.902   |  Neg. p = 0.0000  |
+|      3248      |       1        |        2.091   |        0.008   |      191.588   |  Neg. p = 0.0000  |
+|      3249      |       1        |        1.355   |        0.010   |       86.995   |  Neg. p = 0.0000  |
+|      3250      |       1        |        1.157   |        0.300   |       32.741   |  Neg. p = 0.0000  |
+|      3251      |       1        |        2.489   |        0.009   |      150.045   |  Neg. p = 0.0000  |
+|      3252      |       1        |        1.617   |        0.076   |       98.810   |  Neg. p = 0.0000  |
+|      3253      |       1        |        0.563   |        0.086   |       24.334   |  Neg. p = 0.0000  |
+|      3254      |       1        |        1.414   |        0.020   |       88.444   |  Neg. p = 0.0000  |
+|      3255      |       1        |        1.372   |        0.121   |       68.536   |  Neg. p = 0.0000  |
+|      3256      |       1        |        2.166   |        0.265   |       93.599   |  Neg. p = 0.0000  |
+|      3257      |       1        |        1.946   |        0.012   |      108.503   |  Neg. p = 0.0000  |
+|      3258      |       1        |        1.513   |        0.015   |      137.535   |  Neg. p = 0.0000  |
+|      3259      |       1        |        1.624   |        0.087   |       76.935   |  Neg. p = 0.0000  |
+|      3260      |       1        |        1.459   |        0.180   |       70.592   |  Neg. p = 0.0000  |
+|      3261      |       1        |        0.898   |        0.098   |       44.014   |  Neg. p = 0.0000  |
+|      3262      |       1        |        0.496   |        0.010   |       44.398   |  Neg. p = 0.0000  |
+|      3263      |       1        |        0.523   |        0.153   |       10.265   |  Neg. p = 0.0014  |
+|      3264      |       1        |        0.900   |        0.091   |       31.976   |  Neg. p = 0.0000  |
+|      3265      |       1        |        0.886   |        0.017   |       62.912   |  Neg. p = 0.0000  |
+|      3266      |       1        |        0.533   |        0.000   |       36.543   |  Neg. p = 0.0000  |
+|      3267      |       1        |        1.382   |        0.300   |       33.267   |  Neg. p = 0.0000  |
+|      3268      |       1        |        1.446   |        0.360   |       33.384   |  Neg. p = 0.0000  |
+|      3269      |       1        |        1.242   |        0.000   |      120.512   |  Neg. p = 0.0000  |
+|      3270      |       1        |        1.275   |        0.142   |       33.891   |  Neg. p = 0.0000  |
+|      3271      |       1        |        1.437   |        0.357   |       33.637   |  Neg. p = 0.0000  |
+|      3272      |       1        |        2.498   |        0.294   |       79.509   |  Neg. p = 0.0000  |
+|      3273      |       1        |        0.788   |        0.021   |       57.206   |  Neg. p = 0.0000  |
+|      3274      |       1        |        1.206   |        0.274   |       31.159   |  Neg. p = 0.0000  |
+|      3275      |       1        |        0.931   |        0.046   |       40.398   |  Neg. p = 0.0000  |
+|      3276      |       1        |        1.479   |        0.000   |      105.276   |  Neg. p = 0.0000  |
+|      3277      |       1        |        0.839   |        0.012   |       46.237   |  Neg. p = 0.0000  |
+|      3278      |       1        |        0.627   |        0.000   |       51.515   |  Neg. p = 0.0000  |
+|      3279      |       1        |        1.287   |        0.036   |       94.795   |  Neg. p = 0.0000  |
+|      3280      |       1        |        0.875   |        0.009   |       59.848   |  Neg. p = 0.0000  |
+|      3282      |       1        |        0.743   |        0.224   |       13.793   |  Neg. p = 0.0002  |
+|      3283      |       1        |        1.671   |        0.043   |      105.563   |  Neg. p = 0.0000  |
+|      3284      |       1        |        1.023   |        0.011   |       83.620   |  Neg. p = 0.0000  |
+|      3285      |       1        |        0.914   |        0.131   |       34.858   |  Neg. p = 0.0000  |
+|      3286      |       1        |        0.708   |        0.129   |       18.907   |  Neg. p = 0.0000  |
+|      3287      |       1        |        0.805   |        0.085   |       41.001   |  Neg. p = 0.0000  |
+|      3288      |       1        |       99.850   |        0.000   |        3.244   |  Neg. p = 0.0717  |
+|      3289      |       1        |        1.251   |        0.073   |       79.258   |  Neg. p = 0.0000  |
+|      3306      |       1        |        1.204   |        0.221   |       43.079   |  Neg. p = 0.0000  |
+|      3307      |       1        |        0.940   |        0.022   |       77.262   |  Neg. p = 0.0000  |
+|      3308      |       1        |        0.782   |        0.032   |       54.164   |  Neg. p = 0.0000  |
+|      3309      |       1        |        1.441   |        0.090   |       73.713   |  Neg. p = 0.0000  |
+|      3310      |       1        |        1.520   |        0.080   |      102.024   |  Neg. p = 0.0000  |
+|      3311      |       1        |        1.320   |        0.140   |       47.774   |  Neg. p = 0.0000  |
+|      3312      |       1        |        0.975   |        0.116   |        3.190   |  Neg. p = 0.0741  |
+|      3318      |       1        |        0.762   |        0.406   |        3.865   |  Neg. p = 0.0493  |
+|      3319      |       1        |        1.596   |        0.224   |       45.797   |  Neg. p = 0.0000  |
+|      3320      |       1        |        1.360   |        0.149   |       67.090   |  Neg. p = 0.0000  |
+|      3321      |       1        |        1.765   |        0.175   |       73.096   |  Neg. p = 0.0000  |
+|      3322      |       1        |        0.398   |        0.129   |        9.093   |  Neg. p = 0.0026  |
+|      3323      |       1        |        1.271   |        0.085   |       61.254   |  Neg. p = 0.0000  |
+|      3325      |       1        |        1.389   |        0.092   |       91.832   |  Neg. p = 0.0000  |
+|      3326      |       1        |        2.178   |        0.161   |       86.646   |  Neg. p = 0.0000  |
+|      3327      |       1        |        0.927   |        0.038   |       51.425   |  Neg. p = 0.0000  |
+|      3328      |       1        |        0.708   |        0.172   |       11.841   |  Neg. p = 0.0006  |
+|      3329      |       1        |        0.637   |        0.081   |       28.876   |  Neg. p = 0.0000  |
+|      3330      |       1        |        1.103   |        0.036   |       59.354   |  Neg. p = 0.0000  |
+|      3331      |       1        |        1.119   |        0.012   |       73.283   |  Neg. p = 0.0000  |
+|      3332      |       1        |        1.206   |        0.247   |       35.279   |  Neg. p = 0.0000  |
+|      3333      |       1        |        0.568   |        0.027   |       42.983   |  Neg. p = 0.0000  |
+|      3335      |       1        |        0.844   |        0.012   |       55.289   |  Neg. p = 0.0000  |
+|      3336      |       1        |        0.570   |        0.116   |       20.002   |  Neg. p = 0.0000  |
+|      3337      |       1        |        2.484   |        0.011   |      190.070   |  Neg. p = 0.0000  |
+|      3338      |       1        |        0.946   |        0.000   |       70.789   |  Neg. p = 0.0000  |
+|      3339      |       1        |        1.239   |        0.011   |      105.837   |  Neg. p = 0.0000  |
+|      3340      |       1        |        0.930   |        0.013   |       71.670   |  Neg. p = 0.0000  |
+|      3341      |       1        |        1.271   |        0.000   |       91.184   |  Neg. p = 0.0000  |
+|      3342      |       1        |        0.957   |        0.008   |       94.110   |  Neg. p = 0.0000  |
+|      3343      |       1        |        0.814   |        0.198   |       21.151   |  Neg. p = 0.0000  |
+|      3344      |       1        |        1.000   |        0.000   |       70.508   |  Neg. p = 0.0000  |
+|      3346      |       1        |        1.152   |        0.026   |       97.274   |  Neg. p = 0.0000  |
+|      3347      |       1        |        1.081   |        0.000   |      108.448   |  Neg. p = 0.0000  |
+|      3348      |       1        |        1.025   |        0.000   |       79.865   |  Neg. p = 0.0000  |
+|      3349      |       1        |        0.953   |        0.000   |       69.862   |  Neg. p = 0.0000  |
+|      3350      |       1        |        3.200   |        0.245   |       93.415   |  Neg. p = 0.0000  |
+|      3351      |       1        |        1.565   |        0.038   |       90.727   |  Neg. p = 0.0000  |
+|      3352      |       1        |        0.740   |        0.000   |       78.651   |  Neg. p = 0.0000  |
+|      3353      |       1        |        1.242   |        0.116   |       58.487   |  Neg. p = 0.0000  |
+|      3354      |       1        |        1.267   |        0.148   |       59.982   |  Neg. p = 0.0000  |
+|      3355      |       1        |        0.514   |        0.018   |       42.703   |  Neg. p = 0.0000  |
+|      3356      |       1        |        1.082   |        0.029   |       89.204   |  Neg. p = 0.0000  |
+|      3357      |       1        |        1.232   |        0.275   |       31.958   |  Neg. p = 0.0000  |
+|      3361      |       1        |        1.379   |        0.217   |       35.170   |  Neg. p = 0.0000  |
+|      3362      |       1        |        1.486   |        0.008   |      145.849   |  Neg. p = 0.0000  |
+|      3367      |       1        |        1.012   |        0.404   |       10.240   |  Neg. p = 0.0014  |
+|      3368      |       1        |        0.805   |        0.298   |        9.857   |  Neg. p = 0.0017  |
+|      3369      |       1        |        0.919   |        0.342   |       12.888   |  Neg. p = 0.0003  |
+|      3370      |       1        |        1.201   |        0.142   |       56.269   |  Neg. p = 0.0000  |
+|      3371      |       1        |        1.170   |        0.141   |       43.269   |  Neg. p = 0.0000  |
+|      3372      |       1        |        0.848   |        0.063   |       42.636   |  Neg. p = 0.0000  |
+|      3373      |       1        |        0.818   |        0.008   |       86.670   |  Neg. p = 0.0000  |
+|      3374      |       1        |        0.909   |        0.134   |       29.375   |  Neg. p = 0.0000  |
+|      3385      |       1        |    10000.000   |        0.012   |       10.318   |  Neg. p = 0.0013  |
+|      3386      |       1        |        1.073   |        0.025   |       73.131   |  Neg. p = 0.0000  |
+|      3387      |       1        |        1.558   |        0.000   |      112.999   |  Neg. p = 0.0000  |
+|      3388      |       1        |        0.787   |        0.049   |       50.674   |  Neg. p = 0.0000  |
+|      3389      |       1        |        1.410   |        0.271   |       44.890   |  Neg. p = 0.0000  |
+|      3390      |       1        |        1.069   |        0.014   |       84.139   |  Neg. p = 0.0000  |
+|      3391      |       1        |        1.358   |        0.031   |       74.467   |  Neg. p = 0.0000  |
+|      3392      |       1        |        1.924   |        0.043   |       92.980   |  Neg. p = 0.0000  |
+|      3433      |       1        |        0.354   |        0.035   |        2.748   |  Neg. p = 0.0974  |
+|      3436      |       1        |        2.106   |        0.017   |      193.448   |  Neg. p = 0.0000  |
+|      3437      |       1        |        0.933   |        0.022   |       55.816   |  Neg. p = 0.0000  |
+|      3438      |       1        |        0.611   |        0.000   |       44.801   |  Neg. p = 0.0000  |
+|      3439      |       1        |        0.725   |        0.000   |       55.828   |  Neg. p = 0.0000  |
+|      3440      |       1        |        0.600   |        0.000   |       52.812   |  Neg. p = 0.0000  |
+|      3441      |       1        |        0.467   |        0.008   |       30.804   |  Neg. p = 0.0000  |
+|      3459      |       1        |        0.307   |        0.000   |       30.973   |  Neg. p = 0.0000  |
+|      3460      |       1        |        1.223   |        0.022   |       86.622   |  Neg. p = 0.0000  |
+|      3461      |       1        |        0.811   |        0.031   |       69.016   |  Neg. p = 0.0000  |
+|      3462      |       1        |        1.401   |        0.075   |       74.621   |  Neg. p = 0.0000  |
+|      3463      |       1        |        1.255   |        0.215   |       38.897   |  Neg. p = 0.0000  |
+|      3464      |       1        |        1.070   |        0.011   |       72.568   |  Neg. p = 0.0000  |
+|      3465      |       1        |        0.529   |        0.016   |       49.452   |  Neg. p = 0.0000  |
+|      3466      |       1        |        1.167   |        0.088   |       64.636   |  Neg. p = 0.0000  |
+|      3467      |       1        |        0.547   |        0.028   |       37.327   |  Neg. p = 0.0000  |
+|      3468      |       1        |        1.140   |        0.015   |       74.018   |  Neg. p = 0.0000  |
+|      3469      |       1        |        0.941   |        0.155   |       24.924   |  Neg. p = 0.0000  |
+|      3470      |       1        |        0.820   |        0.022   |       53.331   |  Neg. p = 0.0000  |
+|      3471      |       1        |        0.495   |        0.000   |       35.721   |  Neg. p = 0.0000  |
+|      3472      |       1        |        1.052   |        0.000   |      104.737   |  Neg. p = 0.0000  |
+|      3473      |       1        |        0.891   |        0.148   |       31.701   |  Neg. p = 0.0000  |
+|      3474      |       1        |        1.376   |        0.000   |      115.038   |  Neg. p = 0.0000  |
+|      3475      |       1        |        1.174   |        0.000   |       70.620   |  Neg. p = 0.0000  |
+|      3476      |       1        |        1.142   |        0.089   |       53.596   |  Neg. p = 0.0000  |
+|      3477      |       1        |        0.682   |        0.118   |       26.484   |  Neg. p = 0.0000  |
+|      3478      |       1        |        0.642   |        0.021   |       43.025   |  Neg. p = 0.0000  |
+|      3479      |       1        |        0.993   |        0.280   |       18.293   |  Neg. p = 0.0000  |
+|      3480      |       1        |        0.891   |        0.331   |       13.255   |  Neg. p = 0.0003  |
+|      3481      |       1        |        1.354   |        0.445   |       24.380   |  Neg. p = 0.0000  |
+|      3486      |       1        |        0.813   |        0.251   |       15.259   |  Neg. p = 0.0001  |
+|      3522      |       1        |        1.113   |        0.050   |       48.816   |  Neg. p = 0.0000  |
+|      3523      |       1        |        0.805   |        0.107   |       33.942   |  Neg. p = 0.0000  |
+|      3524      |       1        |        0.763   |        0.238   |       14.790   |  Neg. p = 0.0001  |
+|      3526      |       1        |        1.002   |        0.242   |       17.588   |  Neg. p = 0.0000  |
+|      3527      |       1        |        1.261   |        0.788   |        3.173   |  Neg. p = 0.0749  |
+|      3528      |       1        |        0.850   |        0.094   |       23.880   |  Neg. p = 0.0000  |
+|      3529      |       1        |        0.605   |        0.118   |       14.741   |  Neg. p = 0.0001  |
+|      3530      |       1        |        0.899   |        0.228   |       18.302   |  Neg. p = 0.0000  |
+|      3531      |       1        |        1.569   |        0.146   |       50.869   |  Neg. p = 0.0000  |
+|      3532      |       1        |        1.336   |        0.133   |       42.730   |  Neg. p = 0.0000  |
+|      3533      |       1        |        0.923   |        0.028   |       53.565   |  Neg. p = 0.0000  |
+|      3534      |       1        |        1.623   |        0.059   |       74.051   |  Neg. p = 0.0000  |
+|      3535      |       1        |        1.332   |        0.268   |       27.170   |  Neg. p = 0.0000  |
+|      3537      |       1        |        1.263   |        0.442   |       18.983   |  Neg. p = 0.0000  |
+|      3538      |       1        |        0.693   |        0.263   |       10.244   |  Neg. p = 0.0014  |
+|      3539      |       1        |        1.080   |        0.218   |       19.228   |  Neg. p = 0.0000  |
+|      3540      |       1        |        0.979   |        0.101   |       37.899   |  Neg. p = 0.0000  |
+|      3543      |       1        |        0.477   |        0.164   |        6.258   |  Neg. p = 0.0124  |
+|      3544      |       1        |        1.223   |        0.130   |       36.171   |  Neg. p = 0.0000  |
+|      3545      |       1        |        0.740   |        0.046   |       31.883   |  Neg. p = 0.0000  |
+|      3546      |       1        |        0.819   |        0.080   |       36.617   |  Neg. p = 0.0000  |
+|      3547      |       1        |        0.737   |        0.056   |       35.703   |  Neg. p = 0.0000  |
+|      3557      |       1        |       60.487   |        0.000   |        3.918   |  Neg. p = 0.0478  |
+|      3571      |       1        |        1.240   |        0.058   |       75.567   |  Neg. p = 0.0000  |
+|      3572      |       1        |        1.856   |        0.168   |       67.083   |  Neg. p = 0.0000  |
+|      3573      |       1        |        0.857   |        0.425   |        4.681   |  Neg. p = 0.0305  |
+|      3574      |       1        |        0.656   |        0.235   |       10.376   |  Neg. p = 0.0013  |
+|      3575      |       1        |        0.696   |        0.232   |        7.088   |  Neg. p = 0.0078  |
+|      3576      |       1        |        0.928   |        0.123   |       24.845   |  Neg. p = 0.0000  |
+|      3577      |       1        |        1.748   |        0.092   |       68.773   |  Neg. p = 0.0000  |
+|      3578      |       1        |        0.462   |        0.225   |        3.199   |  Neg. p = 0.0737  |
+|      3579      |       1        |        0.733   |        0.320   |        5.375   |  Neg. p = 0.0204  |
+|      3580      |       1        |        1.701   |        0.174   |       42.150   |  Neg. p = 0.0000  |
+|      3581      |       1        |        0.557   |        0.115   |       12.902   |  Neg. p = 0.0003  |
+|      3582      |       1        |        0.925   |        0.153   |       17.205   |  Neg. p = 0.0000  |
+|      3585      |       1        |        1.374   |        0.256   |       31.011   |  Neg. p = 0.0000  |
+|      3586      |       1        |        0.721   |        0.147   |       19.785   |  Neg. p = 0.0000  |
+|      3622      |       1        |        1.004   |        0.000   |        3.065   |  Neg. p = 0.0800  |
+|      3626      |       1        |        1.191   |        0.099   |        3.892   |  Neg. p = 0.0485  |
+|      3627      |       1        |        0.476   |        0.000   |        2.709   |  Neg. p = 0.0998  |
+|      3628      |       1        |        0.927   |        0.000   |        6.217   |  Neg. p = 0.0127  |
+|      3629      |       1        |        3.001   |        0.000   |       16.498   |  Neg. p = 0.0000  |
+|      3633      |       1        |        1.387   |        0.000   |        6.821   |  Neg. p = 0.0090  |
+
+### ** Found _0_ sites under pervasive positive diversifying and _388_ sites under negative selection at p <= 0.1**
