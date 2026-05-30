@@ -12,3 +12,4 @@ nohup.out
 *.mldist
 *.model.gz
 .DS_Store
+hyphy/*.json
