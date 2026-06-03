@@ -1,0 +1,135 @@
+
+Analysis Description
+--------------------
+BUSTED (branch-site unrestricted statistical test of episodic
+diversification) uses a random effects branch-site model fitted jointly
+to all or a subset of tree branches in order to test for alignment-wide
+evidence of episodic diversifying selection. Assuming there is evidence
+of positive selection (i.e. there is an omega > 1), BUSTED will also
+perform a quick evidence-ratio style analysis to explore which
+individual sites may have been subject to selection. Version 2.0 adds
+support for synonymous rate variation, and relaxes the test statistic to
+0.5 (chi^2_0 + chi^2_2). Version 2.1 adds a grid search for the initial
+starting point. Version 2.2 changes the grid search to LHC, and adds an
+initial search phase to use adaptive Nedler-Mead. Version 3.0 implements
+the option for branch-site variation in synonymous substitution rates.
+Version 3.1 adds HMM auto-correlation option for SRV, and binds SRV
+distributions for multiple branch sets. Version 4.0 adds support for
+multiple hits (MH), ancestral state reconstruction saved to JSON, and
+profiling of branch-site level support for selection / multiple hits.
+Version 4.2 adds calculation of MH-attributable fractions of
+substitutions. Version 4.5 adds an 'error absorption' component. Version
+4.6 adds support for MSS-type models. Version 4.7 adds user configurable
+options for the error class. 
+
+- __Requirements__: in-frame codon alignment and a phylogenetic tree (optionally annotated
+with {})
+
+- __Citation__: *Gene-wide identification of episodic selection*, Mol Biol Evol.
+32(5):1365-71, *Synonymous Site-to-Site Substitution Rate Variation
+Dramatically Inflates False Positive Rates of Selection Analyses: Ignore
+at Your Own Peril*, Mol Biol Evol. 37(8):2430-2439
+
+- __Written by__: Sergei L Kosakovsky Pond
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 4.7
+
+
+>code => Universal
+
+-------
+>[WARNING]
+'/Users/saramattiolo/tesi_melatonina/alignment_prank/MTNR1C_prank.best.fas'
+contains 5 duplicate sequences. Identical sequences do not contribute
+any information to the analysis and only slow down computation. Please
+consider removing duplicate or 'nearly' duplicate sequences, e.g. using
+https://github.com/veg/hyphy-analyses/tree/master/remove-duplicates
+prior to running selection analyses
+-------
+/Users/saramattiolo/tesi_melatonina/hyphy/MTNR1C_tree_busted.nwk
+/Users/saramattiolo/tesi_melatonina/hyphy/MTNR1C_tree_busted.nwk
+
+>Loaded a multiple sequence alignment with **288** sequences, **1192** codons, and **1** partitions from `/Users/saramattiolo/tesi_melatonina/alignment_prank/MTNR1C_prank.best.fas`
+
+>branches => All
+
+>srv => Yes
+The number omega rate classes to include in the model (permissible range = [1,10], default value = 3, integer): 
+>rates => 3
+
+>multiple-hits => None
+
+>mss => No
+The number alpha rate classes to include in the model [1-10, default 3] (permissible range = [1,10], default value = 3, integer): 
+>syn-rates => 3
+
+>error-sink => No
+The number of points in the initial distributional guess for likelihood fitting (permissible range = [1,10000], default value = 250, integer): 
+>grid-size => 250
+The number of initial random guesses to 'seed' rate values optimization (permissible range = [1,25], default value = 1, integer): 
+>starting-points => 1
+
+
+### Branches to test for selection in the BUSTED analysis
+* Selected 573 branches to test in the BUSTED analysis: `Xenopus_laevis_MTNR1C_Mel1CR, Xenopus_laevis_MTNR1C_108698430, Node2, Nanorana_parkeri_MTNR1C_108783900, Probosciger_aterrimus_MTNR1C_PROATE_R04090, Eolophus_roseicapilla_MTNR1C_EOLROS_R05093, Node10, Amazona_aestiva_MTNR1C_AAES_23638, Amazona_guildingii_MTNR1C_AMAGUI_R00472, Node13, Node9, Casuarius_casuarius_MTNR1C_CASCAS_R10656, Dromaius_novaehollandiae_MTNR1C_112997224, Node20, Eudromia_elegans_MTNR1C_EUDELE_R13198, Nothocercus_nigrocapillus_MTNR1C_NOTNIG_R10004, Nothocercus_julius_MTNR1C_NOTJUL_R01539, Node26, Node24, Crypturellus_undulatus_MTNR1C_CRYUND_R03921, Crypturellus_soui_MTNR1C_CRYSOU_R11372, Node30, Nothoprocta_ornata_MTNR1C_NOTORN_R13134, Nothoprocta_pentlandii_MTNR1C_NOTPEN_R03154, Node33, Node29, Node23, Node19, Anseranas_semipalmata_MTNR1C_ANSSEM_R03977, Penelope_pileata_MTNR1C_PENPIL_R10490, Odontophorus_gujanensis_MTNR1C_ODOGUJ_R11098, Gallus_gallus_MTNR1C_Mel1CR, Meleagris_gallopavo_MTNR1C_100547793, Node45, Node43, Node41, Alectura_lathami_MTNR1C_ALELAT_R02773, Node40, Node38, Chauna_torquata_MTNR1C_CHATOR_R00676, Node37, Asarcornis_scutulata_MTNR1C_ASASCU_R08012, Node36, Node18, Podargus_strigoides_MTNR1C_PODSTR_R09199, Uria_aalge_MTNR1C_URIAAL_R00332, Alca_torda_MTNR1C_ALCTOR_R09240, Node63, Cepphus_grylle_MTNR1C_CEPGRY_R00871, Node62, Stercorarius_parasiticus_MTNR1C_STEPAR_R04732, Rynchops_niger_MTNR1C_RYNNIG_R13984, Larus_smithsonianus_MTNR1C_LARSMI_R12970, Chroicocephalus_maculipennis_MTNR1C_CHRMAC_R10768, Node72, Node70, Phaetusa_simplex_MTNR1C_PHASIM_R10231, Node69, Node67, Node61, Glareola_pratincola_MTNR1C_GLAPRA_R01004, Rhinoptilus_africanus_MTNR1C_RHIAFR_R07720, Node78, Dromas_ardeola_MTNR1C_DROARD_R12477, Node77, Jacana_jacana_MTNR1C_JACJAC_R11359, Rostratula_benghalensis_MTNR1C_ROSBEN_R04972, Nycticryphes_semicollaris_MTNR1C_NYCSEM_R11072, Node87, Node85, Thinocorus_orbignyianus_MTNR1C_THIORB_R13904, Pedionomus_torquatus_MTNR1C_PEDTOR_R11479, Node90, Node84, Arenaria_interpres_MTNR1C_AREINT_R03273, Node83, Himantopus_himantopus_MTNR1C_HIMHIM_R08372, Ibidorhyncha_struthersii_MTNR1C_IBISTR_R09485, Node94, Node82, Node76, Node60, Node58, Urocolius_indicus_MTNR1C_UROIND_R09066, Node57, Caloenas_nicobarica_MTNR1C_CALNIC_R08111, Columbina_picui_MTNR1C_COLPIC_R04953, Alopecoenas_beccarii_MTNR1C_ALOBEC_R02399, Node102, Node100, Bucorvus_abyssinicus_MTNR1C_BUCABY_R07081, Node99, Galbula_dea_MTNR1C_GALDEA_R01995, Turnix_velox_MTNR1C_TURVEL_R05237, Node106, Node98, Node56, Phalacrocorax_carbo_MTNR1C_104045342, Anhinga_anhinga_MTNR1C_ANHANH_R13456, Anhinga_rufa_MTNR1C_ANHRUF_R09109, Node124, Sula_dactylatra_MTNR1C_SULDAC_R12892, Node123, Node121, Chionis_minor_MTNR1C_CHIMIN_R11172, Pluvianellus_socialis_MTNR1C_PLUSOC_R08321, Node129, Burhinus_bistriatus_MTNR1C_BURBIS_R12300, Node128, Node120, Sagittarius_serpentarius_MTNR1C_SAGSER_R11407, Node119, Oceanodroma_tethys_MTNR1C_HYDTET_R10591, Node118, Ciconia_maguari_MTNR1C_CICMAG_R07692, Node117, Eurypyga_helias_MTNR1C_104505358, Rhynochetos_jubatus_MTNR1C_RHYJUB_R09029, Node136, Node116, Ardeotis_kori_MTNR1C_ARDKOR_R10260, Lophotis_ruficrista_MTNR1C_LOPRUF_R13661, Node139, Node115, Pygoscelis_papua_MTNR1C_KCX85_0007764, Pygoscelis_antarcticus_MTNR1C_FQV08_0013886, Node144, Spheniscus_humboldti_MTNR1C_FQV23_0001221, Spheniscus_mendiculus_MTNR1C_FQV24_0006801, Node150, Spheniscus_demersus_MTNR1C_FQV21_0015846, Node149, Spheniscus_magellanicus_MTNR1C_FQV22_0004697, Node148, Eudyptula_minor_MTNR1C_FQV19_0011282, Eudyptula_novaehollandiae_MTNR1C_FQV18_0013487, Node158, Eudyptula_albosignata_MTNR1C_FQV20_0014117, Node157, Eudyptes_schlegeli_MTNR1C_FQV10_0008431, Node156, Megadyptes_antipodes_antipodes_MTNR1C_FQV17_0013555, Eudyptes_chrysolophus_MTNR1C_FQV09_0006691, Node163, Node155, Node147, Node143, Glaucidium_brasilianum_MTNR1C_GLABRA_R02568, Ciccaba_nigrolineata_MTNR1C_CICNIG_R09197, Node171, Phaethon_lepturus_MTNR1C_104620115, Node170, Scopus_umbretta_MTNR1C_SCOUMB_R07445, Node169, Nyctibius_bracteatus_MTNR1C_NYCBRA_R07928, Nyctibius_grandis_MTNR1C_NYCGRA_R01597, Node177, Bucco_capensis_MTNR1C_BUCCAP_R01927, Pterocles_gutturalis_MTNR1C_104462321, Syrrhaptes_paradoxus_MTNR1C_SYRPAR_R05646, Pterocles_burchelli_MTNR1C_PTEBUR_R01735, Node184, Node182, Node180, Node176, Node168, Fregetta_grallaria_MTNR1C_FREGRA_R11631, Oceanites_oceanicus_MTNR1C_OCEOCE_R10434, Node187, Node167, Aegotheles_bennettii_MTNR1C_AEGBEN_R00097, Hemiprocne_comata_MTNR1C_HEMCOM_R08937, Node192, Steatornis_caripensis_MTNR1C_STECAR_R03122, Node191, Heliornis_fulica_MTNR1C_HELFUL_R11805, Atlantisia_rogersi_MTNR1C_ATLROG_R13271, Zapornia_atra_MTNR1C_ZAPATR_R04509, Node198, Node196, Node190, Node166, Node142, Node114, Phoenicopterus_ruber_ruber_MTNR1C_N337_04698, Podilymbus_podiceps_MTNR1C_PODPOD_R01634, Podiceps_cristatus_MTNR1C_N338_04062, Node203, Node201, Node113, Fulmarus_glacialis_MTNR1C_104072368, Pelecanoides_urinatrix_MTNR1C_PELURI_R07983, Calonectris_borealis_MTNR1C_CALBOR_R12984, Node210, Node208, Balaeniceps_rex_MTNR1C_BALREX_R04836, Pelecanus_crispus_MTNR1C_104031807, Node214, Mesembrinibis_cayennensis_MTNR1C_MESCAY_R07265, Node213, Node207, Nyctiprogne_leucopyga_MTNR1C_NYCLEU_R01939, Chordeiles_acutipennis_MTNR1C_CHOACU_R04878, Node220, Cathartes_aura_MTNR1C_N323_11549, Node219, Corythaeola_cristata_MTNR1C_CORCRI_R05971, Corythaixoides_concolor_MTNR1C_CORCON_R05112, Node224, Node218, Node206, Node112, Thalassarche_chlororhynchos_MTNR1C_THACHL_R03841, Node111, Cochlearius_cochlearius_MTNR1C_COCCOC_R04839, Node110, Fregata_magnificens_MTNR1C_FREMAG_R13177, Psophia_crepitans_MTNR1C_PSOCRE_R11975, Aramus_guarauna_MTNR1C_ARAGUA_R13877, Node231, Node229, Node109, Node55, Gymnorhina_tibicen_MTNR1C_GYMTIB_R14417, Mystacornis_crossleyi_MTNR1C_MYSCRO_R10319, Node241, Platysteira_castanea_MTNR1C_DYACAS_R11541, Node240, Rhagologus_leucostigma_MTNR1C_RHALEU_R12674, Node239, Dryoscopus_gambensis_MTNR1C_DRYGAM_R08281, Node238, Toxostoma_redivivum_MTNR1C_TOXRED_R11727, Buphagus_erythrorhynchus_MTNR1C_BUPERY_R06720, Turdus_rufiventris_MTNR1C_TURU_102679, Node265, Node263, Leucopsar_rothschildi_MTNR1C_LEUROT_R10000, Node262, Rhabdornis_inornatus_MTNR1C_RHAINO_R15092, Node261, Erithacus_rubecula_MTNR1C_ERIRUB_R10157, Oenanthe_oenanthe_MTNR1C_OENOEN_R07097, Node272, Cercotrichas_coryphoeus_MTNR1C_CERCOR_R05555, Copsychus_sechellarum_MTNR1C_COPSEC_R03756, Node275, Node271, Cinclus_mexicanus_MTNR1C_CINMEX_R04765, Node270, Node260, Certhia_brachydactyla_MTNR1C_CERBRA_R09408, Certhia_familiaris_MTNR1C_CERFAM_R04208, Node279, Node259, Elachura_formosa_MTNR1C_ELAFOR_R12574, Node258, Polioptila_caerulea_MTNR1C_POLCAE_R09037, Thryothorus_ludovicianus_MTNR1C_THRLUD_R01583, Node283, Node257, Pomatostomus_ruficeps_MTNR1C_POSRUF_R08565, Dasyornis_broadbenti_MTNR1C_DASBRO_R00032, Origma_solitaria_MTNR1C_ORISOL_R00796, Node290, Pardalotus_punctatus_MTNR1C_PARPUN_R05933, Node289, Node287, Ptilorrhoa_leucosticta_MTNR1C_PTILEU_R13852, Node286, Node256, Sitta_europaea_MTNR1C_SITEUR_R01923, Tichodroma_muraria_MTNR1C_TICMUR_R01090, Node296, Promerops_cafer_MTNR1C_PROCAF_R11894, Node295, Node255, Phainopepla_nitens_MTNR1C_PHANIT_R00293, Node254, Regulus_satrapa_MTNR1C_REGSAT_R08742, Anthoscopus_minutus_MTNR1C_ANTMIN_R10770, Picathartes_gymnocephalus_MTNR1C_PICGYM_R11787, Cnemophilus_loriae_MTNR1C_CNELOR_R11626, Node309, Melanocharis_versteri_MTNR1C_MELVER_R02964, Node308, Node306, Urocynchramus_pylzowi_MTNR1C_UROPYL_R08952, Node305, Leptocoma_aspasia_MTNR1C_LEPASP_R08054, Node304, Node302, Chloropsis_hardwickii_MTNR1C_CHLHAR_R08029, Chloropsis_cyanopogon_MTNR1C_CHLCYA_R07259, Node315, Node301, Node253, Catharus_fuscescens_MTNR1C_CATFUS_R11229, Node252, Leiothrix_lutea_MTNR1C_LEILUT_R01277, Cisticola_juncidis_MTNR1C_CISJUN_R09510, Aegithalos_caudatus_MTNR1C_AEGCAU_R05887, Alaudala_cheleensis_MTNR1C_ALACHE_R07321, Node341, Node339, Node337, Sinosuthora_webbiana_MTNR1C_SINWEB_R02263, Node336, Sylvia_atricapilla_MTNR1C_SYLATR_R03915, Sylvia_borin_MTNR1C_SYLBOR_R00389, Node345, Node335, Sterrhoptilus_dennistouni_MTNR1C_STEDEN_R10291, Zosterops_hypoxanthus_MTNR1C_ZOSHYP_R11793, Node349, Pomatorhinus_ruficollis_MTNR1C_PORRUF_R03884, Node348, Node334, Illadopsis_cleaveri_MTNR1C_ILLCLE_R03869, Node333, Brachypodius_atriceps_MTNR1C_BRAATR_R11973, Pycnonotus_jocosus_MTNR1C_PYCJOC_R09091, Node354, Node332, Oxylabes_madagascariensis_MTNR1C_OXYMAD_R05265, Node331, Locustella_ochotensis_MTNR1C_LOCOCH_R11176, Node330, Cettia_cetti_MTNR1C_CETCET_R06983, Horornis_vulcanius_MTNR1C_HORVUL_R07519, Node361, Erythrocercus_mccallii_MTNR1C_ERYMCC_R04342, Node360, Sylvietta_virens_MTNR1C_SYLVIR_R00165, Rhadina_sibilatrix_MTNR1C_RHASIB_R03396, Node365, Node359, Node329, Donacobius_atricapilla_MTNR1C_DONATR_R03403, Node328, Hylia_prasina_MTNR1C_HYLPRA_R09038, Node327, Acrocephalus_arundinaceus_MTNR1C_ACRARU_R01347, Hippolais_icterina_MTNR1C_HIPICT_R00636, Node370, Node326, Setophaga_kirtlandii_MTNR1C_SETKIR_R09028, Spizella_passerina_MTNR1C_SPIPAS_R03292, Node380, Emberiza_fucata_MTNR1C_EMBFUC_R02535, Node379, Cardinalis_cardinalis_MTNR1C_CARCAR_R13236, Pheucticus_melanocephalus_MTNR1C_PHEMEL_R00796, Node385, Passerina_amoena_MTNR1C_PASAMO_R09319, Node384, Node378, Calcarius_ornatus_MTNR1C_CALORN_R07236, Node377, Quiscalus_mexicanus_MTNR1C_QUIMEX_R10392, Node376, Rhodinocichla_rosea_MTNR1C_RHOROS_R01657, Node375, Nesospiza_acunhae_MTNR1C_NESACU_R06799, Node374, Loxia_curvirostra_MTNR1C_LOXCUR_R05768, Loxia_leucoptera_MTNR1C_LOXLEU_R09732, Node393, Node373, Node325, Prunella_fulvescens_MTNR1C_PRUFUL_R04394, Prunella_himalayana_MTNR1C_PRUHIM_R03034, Node396, Node324, Motacilla_alba_MTNR1C_MOTALB_R02060, Node323, Hypocryptadius_cinnamomeus_MTNR1C_HYPCIN_R05032, Dicaeum_eximium_MTNR1C_DICEXI_R04528, Node400, Node322, Peucedramus_taeniatus_MTNR1C_PEUTAE_R06035, Irena_cyanogastra_MTNR1C_IRECYA_R03399, Node404, Panurus_biarmicus_MTNR1C_PANBIA_R00544, Nicator_chloris_MTNR1C_NICCHL_R00529, Node407, Node403, Node321, Ploceus_nigricollis_MTNR1C_PLONIG_R12343, Node320, Bombycilla_garrulus_MTNR1C_BOMGAR_R03312, Node319, Node251, Chaetops_frenatus_MTNR1C_CHAFRE_R08627, Notiomystis_cincta_MTNR1C_NOTCIN_R00649, Callaeas_wilsoni_MTNR1C_CALWIL_R07018, Node415, Drymodes_brunneopygia_MTNR1C_DRYBRU_R08824, Malurus_elegans_MTNR1C_MALELE_R01508, Node418, Node414, Node412, Node250, Ptilonorhynchus_violaceus_MTNR1C_PTIVIO_R08219, Climacteris_rufus_MTNR1C_CLIRUF_R04718, Node424, Mohoua_ochrocephala_MTNR1C_MOHOCH_R08330, Node423, Vireo_altiloquus_MTNR1C_VIRALT_R06153, Erpornis_zantholeuca_MTNR1C_ERPZAN_R11354, Node434, Pteruthius_melanotis_MTNR1C_PTEMEL_R00710, Eulacestoma_nigropectus_MTNR1C_EULNIG_R11246, Oreocharis_arfaki_MTNR1C_OREARF_R02050, Node439, Node437, Node433, Orthonyx_spaldingii_MTNR1C_ORTSPA_R11051, Rhipidura_dahli_MTNR1C_RHIDAH_R12436, Node442, Node432, Ifrita_kowaldi_MTNR1C_IFRKOW_R09145, Node431, Struthidea_cinerea_MTNR1C_STRCIN_R11259, Pachycephala_philippinensis_MTNR1C_PACPHI_R01748, Node448, Dicrurus_megarhynchus_MTNR1C_DICMEG_R06949, Node447, Aphelocoma_coerulescens_MTNR1C_APHCOE_R10643, Node446, Node430, Chaetorhynchus_papuensis_MTNR1C_CHAPAP_R08584, Myiagra_hebetior_MTNR1C_MYIHEB_R00567, Node453, Node429, Oriolus_oriolus_MTNR1C_ORIORI_R06546, Daphoenositta_chrysoptera_MTNR1C_DAPCHR_R11008, Node456, Node428, Node422, Machaerirhynchus_nigripectus_MTNR1C_MACNIG_R09389, Node421, Node249, Lanius_ludovicianus_MTNR1C_LANLUD_R00462, Edolisoma_coerulescens_MTNR1C_EDOCOE_R01170, Node460, Node248, Falcunculus_frontatus_MTNR1C_FALFRO_R03464, Aleadryas_rufinucha_MTNR1C_ALERUF_R10562, Node463, Node247, Node237, Menura_novaehollandiae_MTNR1C_MENNOV_R12878, Atrichornis_clamosus_MTNR1C_ATRCLA_R09824, Node466, Node236, Pitta_sordida_MTNR1C_PITSOR_R13760, Serilophus_lunatus_MTNR1C_SERLUN_R01904, Neodrepanis_coruscans_MTNR1C_NEOCOR_R05594, Node473, Node471, Calyptomena_viridis_MTNR1C_CALVIR_R03256, Smithornis_capensis_MTNR1C_SMICAP_R08790, Node477, Sapayoa_aenigma_MTNR1C_SAPAEN_R09291, Node476, Node470, Cephalopterus_ornatus_MTNR1C_CEPORN_R06221, Mionectes_macconnelli_MTNR1C_MIOMAC_R12085, Node487, Tyrannus_savana_MTNR1C_TYRSAV_R03428, Pachyramphus_minor_MTNR1C_PACMIN_R13680, Node491, Neopipo_cinnamomea_MTNR1C_NEOCIN_R06502, Node490, Node486, Tachuris_rubrigastra_MTNR1C_TACRUB_R04889, Node485, Piprites_chloris_MTNR1C_PIPCHL_R06854, Node484, Manacus_vitellinus_MTNR1C_N305_05451, Pitangus_sulphuratus_MTNR1C_BTVI_83250, Node497, Node483, Oxyruncus_cristatus_MTNR1C_OXYCRI_R07738, Onychorhynchus_coronatus_MTNR1C_ONYCOR_R00141, Node500, Node482, Grallaria_varia_MTNR1C_GRAVAR_R00214, Campylorhamphus_procurvoides_MTNR1C_CAMPRO_R08046, Xiphorhynchus_elegans_MTNR1C_XIPELE_R06815, Node509, Furnarius_figulus_MTNR1C_FURFIG_R12106, Node508, Sclerurus_mexicanus_MTNR1C_SCLMEX_R02034, Node507, Sakesphorus_luctuosus_MTNR1C_SAKLUC_R09460, Node506, Node504, Scytalopus_superciliaris_MTNR1C_SCYSUP_R12251, Node503, Node481, Node469, Node235, Acanthisitta_chloris_MTNR1C_103808916, Node234, Node54, Trogon_melanurus_MTNR1C_TROMEL_R06627, Eubucco_bourcierii_MTNR1C_EUBBOU_R11959, Ramphastos_sulfuratus_MTNR1C_RAMSUL_R04747, Node524, Semnornis_frantzii_MTNR1C_SEMFRA_R04702, Node523, Psilopogon_haemacephalus_MTNR1C_PSIHAE_R06903, Node522, Tricholaema_leucomelas_MTNR1C_TRILEU_R09004, Node521, Indicator_maculatus_MTNR1C_INDMAC_R13328, Node520, Node518, Upupa_epops_MTNR1C_UPUEPO_R05627, Rhinopomastus_cyanomelas_MTNR1C_RHICYA_R03705, Node531, Node517, Node53, Geococcyx_californianus_MTNR1C_GEOCAL_R07724, Crotophaga_sulcirostris_MTNR1C_CROSUL_R00386, Node537, Centropus_unirufus_MTNR1C_CENUNI_R10180, Centropus_bengalensis_MTNR1C_CENBEN_R13935, Node541, Piaya_cayana_MTNR1C_PIACAY_R01560, Ceuthmochares_aereus_MTNR1C_CEUAER_R02637, Node544, Node540, Node536, Circaetus_pectoralis_MTNR1C_CIRPEC_R10086, Haliaeetus_albicilla_MTNR1C_HALALB_R14947, Node549, Spizaetus_tyrannus_MTNR1C_SPITYR_R01288, Node548, Pandion_haliaetus_MTNR1C_PANHAL_R01092, Node547, Node535, Chunga_burmeisteri_MTNR1C_CHUBUR_R11754, Herpetotheres_cachinnans_MTNR1C_HERCAC_R05341, Node554, Node534, Node52, Merops_nubicus_MTNR1C_103779608, Brachypteracias_leptosomus_MTNR1C_BRALEP_R03096, Eurystomus_gularis_MTNR1C_EURGUL_R03289, Node560, Todus_mexicanus_MTNR1C_TODMEX_R00614, Chloroceryle_aenea_MTNR1C_CHLAEN_R03401, Ceyx_cyanopectus_MTNR1C_CEYCYA_R03376, Node567, Halcyon_senegalensis_MTNR1C_HALSEN_R03751, Node566, Baryphthengus_martii_MTNR1C_BARMAR_R05987, Node565, Node563, Node559, Node557, Node51, Node17, Oreotrochilus_melanogaster_MTNR1C_OREMEL_R08458, Node16, Node8, Chelonoidis_abingdonii_MTNR1C_116818509, Node7, Gekko_japonicus_MTNR1C_107115720, Node6`
+
+
+### Obtaining branch lengths and nucleotide substitution biases under the nucleotide GTR model
+
+>kill-zero-lengths => Yes
+
+### Deleted 41 zero-length internal branches: `Node110, Node112, Node114, Node118, Node142, Node148, Node149, Node150, Node156, Node158, Node168, Node170, Node207, Node219, Node239, Node247, Node249, Node253, Node254, Node265, Node295, Node320, Node323, Node328, Node334, Node428, Node430, Node431, Node439, Node446, Node456, Node497, Node51, Node52, Node53, Node55, Node56, Node57, Node67, Node82, Node99`
+* Log(L) = -32426.47, AIC-c = 66015.60 (581 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site)  5.367
+
+### Obtaining the global omega estimate based on relative GTR branch lengths and nucleotide substitution biases
+* Log(L) = -29291.86, AIC-c = 59679.47 (547 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site)  5.684
+* non-synonymous/synonymous rate ratio for *test* =   0.0826
+
+### Improving branch lengths, nucleotide substitution biases, and global dN/dS ratios under a full codon model
+* Log(L) = -29121.51, AIC-c = 59338.78 (547 estimated parameters)
+* non-synonymous/synonymous rate ratio for *test* =   0.0701
+
+### Performing the full (dN/dS > 1 allowed) branch-site model fit
+* Log(L) = -28092.78, AIC-c = 57299.38 (556 estimated parameters)
+* For *test* branches, the following rate distribution for branch-site combinations was inferred
+
+|          Selection mode           |     dN/dS     |Proportion, %|               Notes               |
+|-----------------------------------|---------------|-------------|-----------------------------------|
+|        Negative selection         |     0.000     |   74.122    |                                   |
+|        Negative selection         |     0.167     |   24.698    |                                   |
+|      Diversifying selection       |     2.840     |    1.180    |                                   |
+
+* The following rate distribution for site-to-site **synonymous** rate variation was inferred
+
+|               Rate                | Proportion, % |               Notes               |
+|-----------------------------------|---------------|-----------------------------------|
+|               0.385               |    55.974     |                                   |
+|               1.084               |    27.523     |                                   |
+|               2.946               |    16.503     |                                   |
+
+
+### Performing the constrained (dN/dS > 1 not allowed) model fit
+* Log(L) = -28096.58, AIC-c = 57304.96 (555 estimated parameters)
+* For *test* branches under the null (no dN/dS > 1 model), the following rate distribution for branch-site combinations was inferred
+
+|          Selection mode           |     dN/dS     |Proportion, %|               Notes               |
+|-----------------------------------|---------------|-------------|-----------------------------------|
+|        Negative selection         |     0.006     |   72.996    |                                   |
+|        Negative selection         |     0.063     |   21.634    |                                   |
+|         Neutral evolution         |     1.000     |    5.370    |                                   |
+
+* The following rate distribution for site-to-site **synonymous** rate variation was inferred
+
+|               Rate                | Proportion, % |               Notes               |
+|-----------------------------------|---------------|-----------------------------------|
+|               0.383               |    55.847     |                                   |
+|               1.079               |    27.492     |                                   |
+|               2.938               |    16.661     |                                   |
+
+----
+## Branch-site unrestricted statistical test of episodic diversification [BUSTED]
+Likelihood ratio test for episodic diversifying positive selection, **p =   0.0112**.
