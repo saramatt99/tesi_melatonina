@@ -1,0 +1,8 @@
+aBSREL results for MTNR1A (Galaxy Europe, all branches)
+Total sequences: 550
+Total branches tested: 1025
+Significant branches (p<=0.05): 3
+
+* Mustela_putorius_MTNR1A_MTNR1A, p-value = 0.00006
+* Bubo_bubo_MTNR1A_MTNR1A_2, p-value = 0.00066
+* Node775, p-value = 0.01118
